@@ -1,8 +1,16 @@
 import React from "react";
+import SideBarComponent from "../../components/SidebarComponent";
 import "./styles.css";
 
 const Login = () => {
-    return <div>pagina de login</div>;
+    return (
+        <>
+            <main className="container">
+                <SideBarComponent />
+                aa
+            </main>
+        </>
+    );
 };
 
 export default Login;
