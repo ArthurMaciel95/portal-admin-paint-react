@@ -1,0 +1,27 @@
+.page-not-found-container{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-no-found{
+    display: flex;
+    align-items: center;
+}
+.page-no-found img{
+    width: 350px;
+}
+.not-found-description{
+    color: var(--text-color-gray);
+    margin-bottom: 10px;
+}
+.not-found-description h1{
+    font-size: 30px;
+}
+.not-found-description a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.not-found-description a:hover{
+    text-decoration: underline;
+}
