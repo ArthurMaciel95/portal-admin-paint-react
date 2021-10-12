@@ -13,6 +13,7 @@ const SideBarComponent = () => {
     return (
         <>
             <aside className="side-bar">
+                <div className="sidebar-content">
                 <img className="logo" src={logo} alt="logo marca paint" />
                 <div className="menu__side-bar">
                     <ul>
@@ -47,6 +48,7 @@ const SideBarComponent = () => {
                         <object data={iconCopyright} type=""></object>
                         <p>Todos os direitos reservados </p>
                     </span>
+                </div>
                 </div>
             </aside>
         </>

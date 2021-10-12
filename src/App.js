@@ -5,6 +5,7 @@ import AccountDetail from "./pages/account-detail";
 import CreateAccount from "./pages/create-account";
 import Dashboard from "./pages/dashboard";
 import PageNotFound from "./pages/page-not-found";
+import CreateClient from "./pages/CreateClient";
 
 function App() {
     return (
@@ -13,7 +14,13 @@ function App() {
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/create/account" component={CreateAccount} />
                 <Route path="/account/detail" component={AccountDetail} />
-                <Route exact path="/*" component={Login} />
+                <Route exact path="/" component={Login} />
+                
+                <Route path="/create/client" component={CreateClient} />
+
+
+
+
                 <Route path="*" component={PageNotFound} />
             </Switch>
         </BrowserRouter>

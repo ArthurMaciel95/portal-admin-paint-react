@@ -1,9 +1,10 @@
 .page-not-found-container{
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .page-no-found{
     display: flex;
     align-items: center;
