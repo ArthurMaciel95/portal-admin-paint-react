@@ -1,0 +1,65 @@
+.register-container{
+    margin-top: 40px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-card{
+    width: 320px;
+    height: 580px;
+    background: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 30px 90px 20px 70px;
+    color: var(--text-color-gray);
+}
+.register-card h3{ 
+    font-size: 18px;
+}
+.register-form h3{
+    font-weight: normal;
+    font-size: 15px;
+}
+.img-register{
+    width: 100%;
+    height: 220px;
+    margin: 0 auto;
+}
+.img-register img{
+    margin-top: -55px;
+    width:inherit;
+}
+
+.register-form form input{
+    color: var(--text-color-gray);
+    width: 260px;
+    height: 30px;
+    border: 0;
+    outline: none;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+}
+.register-form form button{
+    width: 150px;
+    margin: 10px 0;
+    padding: 10px 5px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.4s all ease;
+}
+.register-form form button:hover{
+   letter-spacing: 0.5px;
+   font-weight: bold;
+   background: #d8b431;
+}
+.toLogin a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+.toLogin a:hover{
+    text-decoration: underline;
+    
+}

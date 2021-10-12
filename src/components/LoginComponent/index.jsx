@@ -3,7 +3,7 @@ import LoginIlustration from '../../assets/images/login_illustrator.png'
 
 import "./styles.css";
 import { Link } from "react-router-dom";
-const DashboardComponent = () => {
+const LoginComponent = () => {
     
     return (
         <main className="dashboard-container">
@@ -20,6 +20,7 @@ const DashboardComponent = () => {
                             <button>Entrar</button>
                             
                         </form>
+                        <small className="toRegister">Não tenho conta. <Link to="/create/account">Criar Nova</Link></small>
                     </div>
                    
                 </div>
@@ -28,4 +29,4 @@ const DashboardComponent = () => {
     );
 };
 
-export default DashboardComponent;
+export default LoginComponent;
