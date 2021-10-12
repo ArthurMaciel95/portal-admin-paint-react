@@ -18,3 +18,9 @@
     --status-late:#E6664A;
 
 }
+
+body{
+    background-color: red;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
