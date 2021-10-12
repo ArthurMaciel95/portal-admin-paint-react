@@ -16,11 +16,7 @@
     --status-late:#E6664A;
 
 }
-*{
-    margin-right: 30px;
 
-
-}
 html,   
 body{
     background-color: var(--background);
