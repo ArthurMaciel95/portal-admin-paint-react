@@ -1,0 +1,20 @@
+:root{
+    /* primary colors */
+
+    --primary-color:#F5CB36;
+
+    /*container color*/
+    --background:#E7E7E7;
+    --sidebar-background:#FFFFFF;
+    
+
+    /*text color*/
+    --text-color-gray:#6B6B6B;
+
+    /*status text color */
+
+    --status-received:#73F536;
+    --status-pending:#F5CB36;
+    --status-late:#E6664A;
+
+}
