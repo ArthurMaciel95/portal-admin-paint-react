@@ -1,14 +1,15 @@
 import React from "react";
 import SideBarComponent from "../../components/SidebarComponent";
 import "./styles.css";
+import DashboardComponent from "../../components/dashboardComponent";
 
 const Login = () => {
     return (
         <>
-            <main className="container">
+            <div className="container">
                 <SideBarComponent />
-                aa
-            </main>
+                <DashboardComponent />
+            </div>
         </>
     );
 };

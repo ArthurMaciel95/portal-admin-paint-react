@@ -1,0 +1,30 @@
+.dashboard-container{
+    margin-left: 22px;
+    margin-top: 15px;
+   
+}
+
+.dashboard-container .dashboard-header{
+
+}
+
+.dashboard-container .dashboard-header .bread-crumbs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.dashboard-container .dashboard-header .bread-crumbs object{
+    margin-right: 5px;
+
+}
+.dashboard-container .dashboard-header .bread-crumbs p{
+    margin: 0px;
+    font-size: 0.7rem;
+    color: var(--text-color-gray);
+}
+.dashboard-container .dashboard-header .bread-crumbs p:hover{
+    cursor: pointer;
+   
+}

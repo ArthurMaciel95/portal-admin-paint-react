@@ -6,6 +6,8 @@ import iconDollar from "../../assets/svg/fa-solid_dollar-sign.svg";
 import iconSecurity from "../../assets/svg/security.svg";
 import iconInfo from "../../assets/svg/info.svg";
 import iconArrowDown from "../../assets/svg/keyboard_arrow_down.svg";
+import iconCopyright from "../../assets/svg/copyright.svg";
+import iconBuild from "../../assets/svg/build.svg";
 
 const SideBarComponent = () => {
     return (
@@ -35,6 +37,16 @@ const SideBarComponent = () => {
                             <object data={iconArrowDown} type=""></object>
                         </li>
                     </ul>
+                </div>
+                <div className="footer__side-bar">
+                    <span>
+                        <object data={iconBuild} type=""></object>
+                        <p>Versão da Aplicação: 1.0</p>
+                    </span>
+                    <span>
+                        <object data={iconCopyright} type=""></object>
+                        <p>Todos os direitos reservados </p>
+                    </span>
                 </div>
             </aside>
         </>
