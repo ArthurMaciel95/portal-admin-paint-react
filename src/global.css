@@ -15,6 +15,12 @@
     --status-pending:#F5CB36;
     --status-late:#E6664A;
 
+
+    --text-large:1.4rem;
+    --text-medium:1.2rem;
+    --text-small:1rem;
+    --text-xsmall:0.7rem
+
 }
 
 html,   

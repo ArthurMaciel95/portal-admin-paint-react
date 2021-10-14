@@ -10,9 +10,9 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/create/account" component={CreateAccount} />
-                <Route path="/account/detail" component={AccountDetail} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/create/account" component={CreateAccount} />
+                <Route exact path="/account/detail" component={AccountDetail} />
                 <Route exact path="/*" component={Login} />
                 <Route path="*" component={PageNotFound} />
             </Switch>
