@@ -24,16 +24,3 @@ Depois entre na pasta do projeto é utilize o sequinte comando:
 ``npm start``
 
 
-### como contribuir no projeto:
-
-Para adicionar uma nova funcionalidade, o correto é criar um branch para tal features.
-
-certifique que esteja na branch main e utilize o seguinte comando:
-
-`` git checkout -b <nome-da-branch>`` 
-
-assim você vai comitando na branch criada é quando estiver finalizado utilize o seguinte comando:
-
-`` git push origin <nome-da-branch>``
-
-criando um pull request.
