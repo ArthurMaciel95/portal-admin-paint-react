@@ -1,0 +1,94 @@
+.create-user-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+}
+
+.create-user-card {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.create-user-header {
+     width: 100%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+}
+.user-header {
+
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+.user-header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.user-description p {
+    margin:0;
+    font-size: 15px;
+}
+.user-description p:nth-child(2) {
+    color: var(--primary-color)
+}
+.create-user-card-img{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center;
+}
+.create-user-card-img img{
+    width: 300px;
+}
+.create-user-card-description{
+    padding: 0 35px;
+    color: var(--text-color-gray);
+}
+.create-user-card-description fieldset{
+    border: none; 
+}
+fieldset input{
+    color: var(--text-color-gray);
+    width: 300px;
+    height: 30px;
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-right: 10px;
+    margin-bottom: 13px;
+}
+.create-user-card-description h2{
+    text-align: center;
+    font-size: 20px;
+    margin-left: 15px;
+}
+fieldset legend{
+    font-weight: bold;
+}
+.button-form{
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+}
+.button-form button{
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 150px;
+    padding: 10px 5px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.4s all ease;
+    margin-bottom: 15px;
+}
+.button-form button:hover{
+   letter-spacing: 0.5px;
+   font-weight: bold;
+   background: #d8b431;
+}
