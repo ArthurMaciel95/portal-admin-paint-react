@@ -59,7 +59,7 @@ fieldset input{
     outline: none;
     border-bottom: 2px solid var(--primary-color);
     margin-right: 10px;
-    margin-bottom: 13px;
+    margin-bottom: 15px;
 }
 .create-user-card-description h2{
     text-align: center;
@@ -71,7 +71,7 @@ fieldset legend{
 }
 .button-form{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 30px;
 }
 .button-form button{

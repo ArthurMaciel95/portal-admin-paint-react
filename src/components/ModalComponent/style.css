@@ -1,0 +1,37 @@
+.card--modal{
+    position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.5);
+}
+.modal--content{
+    width: 300px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    top: 25%;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: var(--text-color-gray); 
+}
+.card--modal i{
+    color: #02b102;
+}
+.card--modal h2{
+    font-size: 18px;
+}
+.card--modal button{
+    position: relative;
+}
