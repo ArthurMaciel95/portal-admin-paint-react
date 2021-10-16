@@ -1,0 +1,16 @@
+button{
+    width: 150px;
+    padding: 10px 5px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.4s all ease;
+    margin-bottom: 15px;
+}
+button:hover{
+   letter-spacing: 0.5px;
+   font-weight: bold;
+   background: #d8b431;
+}
