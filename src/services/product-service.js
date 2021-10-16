@@ -1,4 +1,4 @@
-import {baseURL} from '../environment/index'
+import {api} from '../environment/index'
 import axios from 'axios'
 
 class ProductService {
@@ -9,7 +9,7 @@ class ProductService {
     * @return Promise
     * */
     listProduct(){
-        const path = `${baseURL}/product/list`
+        const path = `${api.baseURL}/product/list`
         return  axios({
             method:'get',
             url:path,
@@ -21,7 +21,7 @@ class ProductService {
     * @return Promise
     * */
     listOneProduct(id){
-        const path = `${baseURL}/product/list`
+        const path = `${api.baseURL}/product/list`
         return axios({
             method:'get',
             url:path,
@@ -34,7 +34,7 @@ class ProductService {
     * @return Promise
     * */
     createProduct(payload){
-        const path = `${baseURL}/product/create`;
+        const path = `${api.baseURL}/product/create`;
         return axios({
             method:'post',
             url:path,
@@ -48,7 +48,7 @@ class ProductService {
     * @return Promise
     * */
     updateProduct(id,payload){
-        const path = `${baseURL}/product/update`;
+        const path = `${api.baseURL}/product/update`;
         return axios({
             method:'put',
             url:path,
@@ -62,7 +62,7 @@ class ProductService {
     * @return Promise
     * */
     deleteProduct(id){
-        const path = `${baseURL}/product/delete`;
+        const path = `${api.baseURL}/product/delete`;
         return axios({
             method:'delete',
             url:path,

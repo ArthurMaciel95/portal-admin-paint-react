@@ -1,0 +1,92 @@
+.dashboard-container{
+    
+    margin: 10px 20px;
+    width: 100%;
+    
+}
+
+.dashboard-container .dashboard-header{
+
+}
+
+
+.dashboard-container .dashboard-filter{
+    border-radius: 4px;
+    padding: 20px;
+    height: 130px;
+    background-color: var(--sidebar-background);
+    box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+}
+.dashboard-container .dashboard-filter h4{
+    font-weight: 300;
+    color: var(--text-color-gray);
+    font-size: var(--text-smal);
+}
+
+.dashboard-container .dashboard-filter .input-area{
+    margin-top: 8px;
+}
+
+.dashboard-container .dashboard-body{
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 400px;
+    background-color: var(--sidebar-background);
+    box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+}
+
+.dashboard-container .dashboard-body table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 4px;
+}
+
+.dashboard-container .dashboard-body table thead{
+  background-color: rgb(245, 245, 245);
+ 
+}
+
+.dashboard-container .dashboard-body table thead th{
+    padding: 4px 0px;
+    font-size: var(--text-xsmall);
+    font-weight: 600;
+    color: var(--text-color-gray);
+}
+.dashboard-container .dashboard-body table tbody tr:nth-child(odd){
+    background: #e6e6e6;
+}
+.dashboard-container .dashboard-body table tbody tr{
+    font-size: var(--text-xsmall);
+    color: var(--text-color-gray);
+    
+}
+.dashboard-container .dashboard-body table tbody tr td{
+    padding: 5px 0px;
+    text-align: center;
+
+}
+.dashboard-container .dashboard-body table tbody tr td .image-area{
+    width: fit-content;
+}
+.dashboard-container .dashboard-body table tbody tr td img{}
+.dashboard-container .dashboard-body table tbody tr td p{}
+
+
+.circle-status-red{
+    background: var(--status-late);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.circle-status-green{
+    background: var(--status-received);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.circle-status-yellow{
+    background: var(--status-pending);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}

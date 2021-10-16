@@ -1,0 +1,20 @@
+.btn{
+    width: 150px;
+    padding: 10px 5px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+  
+    margin-bottom: 15px;
+}
+
+.btn-detail{
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: var(--primary-color);
+}

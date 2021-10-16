@@ -1,18 +1,22 @@
-import {baseURL} from '../environment/index'
-import axios from 'axios'
+import { api } from '../environment/index'
+import axios from '../utils/axios'
 
-class clientService {
-    constructor(){}
+class ClientService {
+    constructor() { }
 
     /* 
     * Lista todos os clientes.
     * @return Promise
     * */
-    listClients(){
-        const path = `${baseURL}/client/list`
-        return  axios({
-            method:'get',
-            url:path,
+    listClients = () => {
+        return new Promise(async (resolve, reject) => {
+            const data = await axios.get(`/client/list`)
+
+            if (!data) {
+                reject({ message: 'data not found' })
+            }
+
+            resolve(data)
         })
     }
     /* 
@@ -20,27 +24,27 @@ class clientService {
     * Lista somente um cliente através do id
     * @return Promise
     * */
-    listOneClient(id){
-        const path = `${baseURL}/client`
+    /* listOneClient(id) {
+        const path = `/client`
         return axios({
-            method:'get',
-            url:path,
-            params:id
+            method: 'get',
+            url: path,
+            params: id
         })
-    }
+    } */
 
     /* @params { payload } todos os dados a serem enviados
     * Cria um novo cliente
     * @return Promise
     * */
-    CreateClient(payload){
-        const path = `${baseURL}/client/list`;
-        return axios({
-            method:'post',
-            url:path,
-            data:payload
-        })
-    }
+    /*    CreateClient(payload) {
+           const path = `/client/list`;
+           return axios({
+               method: 'post',
+               url: path,
+               data: payload
+           })
+       } */
 }
 
-export default clientService;
+export default ClientService;

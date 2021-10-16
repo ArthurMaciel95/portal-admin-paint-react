@@ -1,28 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginIlustration from '../../assets/images/login_illustrator.png'
+import InputComponent from '../../components/inputComponent'
 
+import ButtonComponent from '../../components/ButtonComponent'
 import "./styles.css";
 import { Link } from "react-router-dom";
 const LoginComponent = () => {
-    
+
     return (
-        <main className="dashboard-container">
-            <div className="dashboard-content">
-                <div className="dashboard-login-content">
+        <main className="login-container">
+            <div className="login-card-content">
+                <div className="login-content">
                     <h3 className="login-title">Portal Administrativo</h3>
                     <img src={LoginIlustration} alt="" />
                     <div className="form-login">
                         <h3>Preencha os campos para fazer o Login</h3>
                         <form action="" method="post">
-                            <input type="text" id="name" placeholder="Email" />
-                            <input type="password" id="password" placeholder="Senha"/>
+                            <InputComponent label="Email" type="text" />
+                            <InputComponent label="Senha" type="password" />
                             <Link to="">Esqueci minha senha.</Link>
-                            <button>Entrar</button>
-                            
+                            <ButtonComponent type="submit" value="Entrar" />
+
+
                         </form>
-                        <small className="toRegister">Não tenho conta. <Link to="/create/account">Criar Nova</Link></small>
+
                     </div>
-                   
+
                 </div>
             </div>
         </main>

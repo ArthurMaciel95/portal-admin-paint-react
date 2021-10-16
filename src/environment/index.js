@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    baseURL:'http://localhost:3000',
-    production:'',
-    token:''
+    baseURL: 'http://localhost:3000',
+    production: false,
+    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY4MTI1MDQ3YzdkMWE3YzkzMmQ0MWYiLCJ1c2VybmFtZSI6Imp1YmlsZWlkb2FncmVzdGUiLCJlbWFpbCI6InBpY2FkZW1lbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRpa0xyMEMzbFRQaVo0YUFsRDNPTHdlRXQvNHh5STNBNEVKM0d1OW5PbmdVaWhIWGxUdWxKYSIsInBhc3N3b3JkX2hhc2giOiIkMmEkMTAkaWtMcjBDM2xUUGlaNGFBbEQzT0x3ZSIsImNyZWF0ZWRfYXQiOiIyMDIxLTEwLTE0VDExOjE5OjQ0LjY2NloiLCJ1cGRhdGVkX2F0IjoiMjAyMS0xMC0xNFQxMToxOTo0NC42NjZaIiwiX192IjowLCJpYXQiOjE2MzQ0MjM5NjksImV4cCI6MTYzNDQ0MTk2OX0.wCH5nybz0DByy2ogCeqtF3vT0tsvXhVw0irVU829DJ8'
 }
