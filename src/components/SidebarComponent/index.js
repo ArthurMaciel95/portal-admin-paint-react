@@ -10,6 +10,8 @@ import iconCopyright from "../../assets/svg/copyright.svg";
 import iconBuild from "../../assets/svg/build.svg";
 
 const SideBarComponent = () => {
+    const icon = [iconUser,iconDollar, iconSecurity,iconInfo]
+    const textOptionMenu = ['Clientes','Faturamento','Segurança','Informação']
     return (
         <>
             <aside className="side-bar">
@@ -17,26 +19,14 @@ const SideBarComponent = () => {
                 <img className="logo" src={logo} alt="logo marca paint" />
                 <div className="menu__side-bar">
                     <ul>
-                        <li>
-                            <object data={iconUser} type=""></object>
-                            <p>Clientes</p>
-                            <object data={iconArrowDown} type=""></object>
-                        </li>
-                        <li>
-                            <object data={iconDollar} type=""></object>
-                            <p>Faturamento</p>
-                            <object data={iconArrowDown} type=""></object>
-                        </li>
-                        <li>
-                            <object data={iconSecurity} type=""></object>
-                            <p>Segurança</p>
-                            <object data={iconArrowDown} type=""></object>
-                        </li>
-                        <li>
-                            <object data={iconInfo} type=""></object>
-                            <p>Informação</p>
-                            <object data={iconArrowDown} type=""></object>
-                        </li>
+                        {textOptionMenu.map((option,i)=>(
+                             <li key={i}>
+                             <object data={icon[i]} type=""></object>
+                             <p>{option}</p>
+                             <object data={iconArrowDown} type=""></object>
+                         </li>
+                        ))}
+                       
                     </ul>
                 </div>
                 <div className="footer__side-bar">
