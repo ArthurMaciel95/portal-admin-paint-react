@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .btn{
-=======
-button{
->>>>>>> 6568e02867841dc851050bc406f37241d9ae4612
     width: 150px;
     padding: 10px 5px;
     cursor: pointer;
@@ -10,7 +6,6 @@ button{
     background: var(--primary-color);
     color: #fff;
     border-radius: 5px;
-<<<<<<< HEAD
   
     margin-bottom: 15px;
 }
@@ -22,13 +17,4 @@ button{
     padding: 5px 10px;
     cursor: pointer;
     background: var(--primary-color);
-=======
-    transition: 0.4s all ease;
-    margin-bottom: 15px;
-}
-button:hover{
-   letter-spacing: 0.5px;
-   font-weight: bold;
-   background: #d8b431;
->>>>>>> 6568e02867841dc851050bc406f37241d9ae4612
 }
