@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import BreadCrumbComponent from '../breadCrumbComponent'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
 import InputComponent from '../inputComponent'
-
 import environment from '../../environment'
 import LoadingComponent from '../LoadingComponent'
 

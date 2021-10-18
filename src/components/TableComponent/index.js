@@ -1,9 +1,11 @@
 import React from 'react'
-import Avatar from '../../assets/images/avatar2.png'
-import Avatar1 from '../../assets/images/avatar1.png'
+import { formatDate } from '../../utils/mask'
+import Avatar1 from '../../assets/images/no-avatar.png'
 import IconAccountDetail from '../../assets/svg/launch.svg'
 import ButtonComponent from '../ButtonComponent'
+import './styles.css'
 const TableComponent = ({ data, tableHeaderNames }) => {
+
 
     return (
         <table>
@@ -19,9 +21,9 @@ const TableComponent = ({ data, tableHeaderNames }) => {
             </thead>
             <tbody>
 
-                {/*  {
-                    data.map(item => {
-                        return <tr>
+                {
+                    data ? data.map(item => {
+                        return <tr key={item._id}>
                             <td className="image-area">
                                 <img src={Avatar1} alt="" />
                             </td>
@@ -32,14 +34,16 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                 <p>{item.email}</p>
                             </td>
                             <td className="status-area">
-                                <span className="circle-status-yellow"></span>
+                                {item.status === 'pending' ? <span className="circle-status-yellow"></span> : ''}
+                                {item.status === 'received' ? <span className="circle-status-green"></span> : ''}
+                                {item.status === 'late' ? <span className="circle-status-red"></span> : ''}
                                 <p>{item.status}</p>
                             </td>
                             <td>
-                                <p>{item.created_at}</p>
+                                <p>{formatDate(item.created_at)}</p>
                             </td>
                             <td>
-                                <p>{item.updated_at}</p>
+                                <p>{formatDate(item.updated_at)}</p>
                             </td>
                             <td>
                                 <p>R$1.872,02</p>
@@ -54,8 +58,8 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                 </ButtonComponent>
                             </td>
                         </tr>
-                    })
-                } */}
+                    }) : ''
+                }
 
 
             </tbody>
