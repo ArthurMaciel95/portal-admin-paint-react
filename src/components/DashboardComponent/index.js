@@ -4,9 +4,8 @@ import iconAccount from '../../assets/svg/account_circle-1.svg'
 import InputComponent from '../inputComponent'
 import environment from '../../environment'
 import LoadingComponent from '../LoadingComponent'
-
-import './styles.css'
 import TableComponent from '../TableComponent'
+import './styles.css'
 
 const DashboardComponent = () => {
     const Crumb = {
@@ -22,20 +21,15 @@ const DashboardComponent = () => {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + environment.token
-
-
                 }
-
             }
-            // ERRO AO REALIZAR O MAP NO TEMPLATE. TypeError: Cannot read property 'map' of undefined
             const result = await fetch(url, option)
             const data = await result.json()
-
             setUser(data.clients)
-            setLoading(false)
+            setTimeout(() => {
+                setLoading(false)
+            }, 3000);
             return data
-
-
         } catch (e) {
             setLoading(false)
             console.error(e)
@@ -45,7 +39,6 @@ const DashboardComponent = () => {
     useEffect(() => {
         getData()
     }, [])
-
 
     return (
         <>

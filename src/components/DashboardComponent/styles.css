@@ -1,15 +1,11 @@
 .dashboard-container{
-    
     margin: 10px 20px;
     width: 100%;
-    
 }
 
 .dashboard-container .dashboard-header{
 
 }
-
-
 .dashboard-container .dashboard-filter{
     border-radius: 4px;
     padding: 20px;
@@ -18,20 +14,17 @@
     box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
 }
 .dashboard-container .dashboard-filter h4{
-    font-weight: 300;
+    font-weight: 500;
     color: var(--text-color-gray);
-    font-size: var(--text-smal);
+    font-size: var(--text-xsmall);
 }
-
 .dashboard-container .dashboard-filter .input-area{
     display: flex;
     width: 45%;
     height: 40%;
     justify-content: space-between;
     align-items: center;
-  
 }
-
 .dashboard-container .dashboard-body{
     margin-top: 20px;
     border-radius: 4px;

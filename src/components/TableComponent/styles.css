@@ -9,7 +9,7 @@
  
 }
 
-.dashboard-container .dashboard-body table thead th{
+.dashboard-container .dashboard-body table thead tr th{
     padding: 4px 0px;
     font-size: var(--text-xxsmall);
     font-weight: 600;
@@ -22,11 +22,17 @@
     font-size: var(--text-xxsmall);
     color: var(--text-color-gray);
 
+
 }
 .dashboard-container .dashboard-body table tbody tr td{
-    padding: 5px 0px;
+ 
     text-align: center;
 
+}
+.dashboard-container .dashboard-body table tbody tr td object{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
 }
 .dashboard-container .dashboard-body table tbody tr  .image-area{
 
@@ -38,30 +44,41 @@
 }
 .dashboard-container .dashboard-body table tbody tr td p{}
 
-.status-area{
+.dashboard-container .dashboard-body table tbody tr .status-area{
     justify-content: center;
     display: flex;
     align-items: center;
+   
 }
-.circle-status-red{
+.dashboard-container .dashboard-body table tbody tr .status-area .circle-status-red{
     margin-right: 5px;
     background: var(--status-late);
     height: 10px;
     width: 10px;
     border-radius: 50%;
 }
-.circle-status-green{
+.dashboard-container .dashboard-body table tbody tr .status-area .circle-status-green{
     margin-right: 5px;
-    display: block;
     background: var(--status-received);
     height: 10px;
     width: 10px;
     border-radius: 50%;
 }
-.circle-status-yellow{
+.dashboard-container .dashboard-body table tbody tr .status-area .circle-status-yellow{
     margin-right: 5px;
     background: var(--status-pending);
     height: 10px;
     width: 10px;
     border-radius: 50%;
+}
+
+.icon-pay-method svg{
+
+    width: 8px;
+    height: 8px;
+}
+.pay-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

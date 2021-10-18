@@ -4,16 +4,17 @@
 }
 
 .container-input .mat-input{
-    color: var(--text-color-gray);
+
     outline: none;
     border: none;
     width: 260px;
     height: 30px;
-    border-bottom: 2px solid rgb(189, 189, 189);
+    border-bottom: 1px solid rgb(189, 189, 189);
     transition: 0.4s;
 }
 
 .container-input .mat-label{
+    color: var(--text-color-gray);
     position: absolute;
     font-size: 0.7rem;
     top: 10px;
@@ -33,6 +34,6 @@
 
 .container-input .mat-input:focus,
 .container-input .mat-input:valid {
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     transition: 0.4s;
 }

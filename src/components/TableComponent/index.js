@@ -1,9 +1,11 @@
-import React from 'react'
-import { formatDate } from '../../utils/mask'
-import Avatar1 from '../../assets/images/no-avatar.png'
-import IconAccountDetail from '../../assets/svg/launch.svg'
-import ButtonComponent from '../ButtonComponent'
-import './styles.css'
+import React from 'react';
+import { formatDate } from '../../utils/mask';
+import Avatar1 from '../../assets/images/no-avatar.png';
+import IconAccountDetail from '../../assets/svg/launch.svg';
+import ButtonComponent from '../ButtonComponent';
+import IconDollar from '../../assets/svg/ic_outline-payments.svg';
+import IconCreditCard from '../../assets/svg/credit_card.svg'
+import './styles.css';
 const TableComponent = ({ data, tableHeaderNames }) => {
 
 
@@ -34,10 +36,17 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                 <p>{item.email}</p>
                             </td>
                             <td className="status-area">
-                                {item.status === 'pending' ? <span className="circle-status-yellow"></span> : ''}
-                                {item.status === 'received' ? <span className="circle-status-green"></span> : ''}
-                                {item.status === 'late' ? <span className="circle-status-red"></span> : ''}
-                                <p>{item.status}</p>
+
+                                {item.status === 'pending' && <span className="circle-status-yellow"></span>}
+                                {item.status === 'received' && <span className="circle-status-green"></span>}
+                                {item.status === 'late' && <span className="circle-status-red"></span>}
+
+                                <p>
+                                    {item.status === 'pending' && 'Pendente'}
+                                    {item.status === 'received' && 'Recebido'}
+                                    {item.status === 'late' && 'Atrasado'}
+
+                                </p>
                             </td>
                             <td>
                                 <p>{formatDate(item.created_at)}</p>
@@ -48,8 +57,17 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                             <td>
                                 <p>R$1.872,02</p>
                             </td>
-                            <td>
-                                <p>{item.payment_method}</p>
+                            <td className="pay-area">
+                                <span>
+                                    {item.payment_method === 'credit' && <object className="icon-pay-method" data={IconCreditCard}></object>}
+                                    {item.payment_method === 'debit' && <object className="icon-pay-method" data={IconCreditCard}></object>}
+                                    {item.payment_method === 'money' && <object className="icon-pay-method" data={IconDollar}></object>}
+                                </span>
+                                <p>
+                                    {item.payment_method === 'credit' && 'Crédito'}
+                                    {item.payment_method === 'debit' && 'Débito'}
+                                    {item.payment_method === 'money' && 'Dinheiro'}
+                                </p>
                             </td>
                             <td>
 
