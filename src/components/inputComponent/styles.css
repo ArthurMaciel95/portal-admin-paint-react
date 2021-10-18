@@ -7,6 +7,8 @@
     color: var(--text-color-gray);
     outline: none;
     border: none;
+    width: 260px;
+    height: 30px;
     border-bottom: 2px solid rgb(189, 189, 189);
     transition: 0.4s;
 }
