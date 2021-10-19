@@ -1,0 +1,20 @@
+.message-area{
+    max-width: 400px;
+   font-size: 0.7rem;
+   margin: 20px 0px;
+}
+
+.message-area .error-message{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(238, 208, 208);
+    color: rgb(194, 85, 71);
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 4px;
+    
+}
+.message-area .error-message img{
+    margin-right: 10px;
+}

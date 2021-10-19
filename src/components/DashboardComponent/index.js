@@ -12,6 +12,7 @@ const DashboardComponent = () => {
         icon: iconAccount,
         page: 'Clientes'
     }
+
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     async function getData() {
