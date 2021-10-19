@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles.css'
 
-const LoadingComponent = () => {
+const LoadingComponent = ({ status }) => {
+    console.log(status)
     return (
         <div className="loading-overlay">
             <div id="container">

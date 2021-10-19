@@ -5,6 +5,8 @@ import IconAccountDetail from '../../assets/svg/launch.svg';
 import ButtonComponent from '../ButtonComponent';
 import IconDollar from '../../assets/svg/ic_outline-payments.svg';
 import IconCreditCard from '../../assets/svg/credit_card.svg'
+import IconArrowLeft from '../../assets/svg/arrow_back_ios-1.svg'
+import IconArrowRight from '../../assets/svg/arrow_back_ios.svg'
 import './styles.css';
 const TableComponent = ({ data, tableHeaderNames }) => {
 
@@ -24,7 +26,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
             <tbody>
 
                 {
-                    data ? data.map(item => {
+                    data && data.map(item => {
                         return <tr key={item._id}>
                             <td className="image-area">
                                 <img src={Avatar1} alt="" />
@@ -76,14 +78,28 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                 </ButtonComponent>
                             </td>
                         </tr>
-                    }) : ''
+                    })
                 }
 
 
             </tbody>
             <tfoot>
                 <div className="pagination">
-
+                    <div>
+                        <p>Item por Página</p>
+                        <select name="" id="">
+                            <option value="10">10</option>
+                            <option value="10">50</option>
+                            <option value="10">100</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Página 1 de 10</p>
+                        <span>
+                            <object data={IconArrowRight} type=""></object>
+                            <object data={IconArrowLeft} type=""></object>
+                        </span>
+                    </div>
                 </div>
             </tfoot>
         </table>

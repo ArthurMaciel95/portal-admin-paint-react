@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import BreadCrumbComponent from '../breadCrumbComponent'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
-import InputComponent from '../inputComponent'
+import InputComponent from '../InputComponent'
 import environment from '../../environment'
-import LoadingComponent from '../LoadingComponent'
+import LoadingCircleComponent from '../LoadingCircleComponent'
 import TableComponent from '../TableComponent'
 import './styles.css'
 
@@ -42,7 +42,7 @@ const DashboardComponent = () => {
 
     return (
         <>
-            {loading ? <LoadingComponent /> : ''}
+            {loading && <LoadingCircleComponent status={loading} />}
             <section className="dashboard-container">
                 <div className="dashboard-header">
                     <BreadCrumbComponent crumb={Crumb} />

@@ -33,7 +33,7 @@
 }
 
 .side-bar .menu__side-bar ul li {
-    padding: 12px 0px;
+    padding: 8px 0px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
