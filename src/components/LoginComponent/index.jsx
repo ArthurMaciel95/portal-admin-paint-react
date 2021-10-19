@@ -1,12 +1,12 @@
-import React, { useEffec, useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginIlustration from '../../assets/images/login_illustrator.png'
 import InputComponent from '../../components/InputComponent'
-
+import environment from '../../environment'
 import ButtonComponent from '../../components/ButtonComponent'
 import "./styles.css";
 import { Link } from "react-router-dom";
 import ErroMessageComponent from "../ErroMessageComponent";
-import { useEffect } from "react/cjs/react.development";
+
 const LoginComponent = () => {
 
     const [email, setEmail] = useState('')
@@ -21,14 +21,10 @@ const LoginComponent = () => {
         return false
     }
 
-    /*   const handleSubmit = (e) => {
-          e.prevendDefault()
-          setDisabled(true)
-          if (isNull(email) || isNull(password)) {
-              setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
-          }
-  
-      } */
+    const login = () => {
+        const path = `${environment.baseURL}/user/login`
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setDisabled(true)
@@ -36,6 +32,13 @@ const LoginComponent = () => {
             setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
     };
+
+    const onchangeInput = (email, password) => {
+        setPassword(password)
+        setEmail(email)
+        console.log(email, password)
+
+    }
 
 
     return (
@@ -48,8 +51,8 @@ const LoginComponent = () => {
                         <h3>Preencha os campos para fazer o Login</h3>
                         {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
                         <form onSubmit={handleSubmit} method="post">
-                            <InputComponent label="Email" type="text" disabled={disabled} />
-                            <InputComponent label="Senha" type="password" disabled={disabled} />
+                            <InputComponent label="Email" type="text" disabled={disabled} onchangeInput={onchangeInput} />
+                            <InputComponent label="Senha" type="password" disabled={disabled} onchangeInput={onchangeInput} />
                             <Link to="">Esqueci minha senha.</Link>
                             <ButtonComponent type="submit" value="Entrar" disabled={disabled} />
                         </form>
