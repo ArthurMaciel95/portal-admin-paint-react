@@ -1,13 +1,13 @@
 import React from "react";
 import "./styles.css";
-import Sidebar from '../../components/SidebarComponent'
-import PageNot from '../../components/PageNotFountComponent'
+import Sidebar from '../../components/Sidebar'
+import PageNot from '../../components/PageNotFound'
 
 const PageNotFound = () => {
     return (
         <div className='container'>
-            <Sidebar/>
-            <PageNot/>
+            <Sidebar />
+            <PageNot />
         </div>
     );
 };

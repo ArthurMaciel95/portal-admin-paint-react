@@ -2,7 +2,7 @@ import React from 'react';
 import { formatDate } from '../../utils/mask';
 import Avatar1 from '../../assets/images/no-avatar.png';
 import IconAccountDetail from '../../assets/svg/launch.svg';
-import ButtonComponent from '../ButtonComponent';
+import ButtonComponent from '../Button';
 import IconDollar from '../../assets/svg/ic_outline-payments.svg';
 import IconCreditCard from '../../assets/svg/credit_card.svg'
 import IconArrowLeft from '../../assets/svg/arrow_back_ios-1.svg'

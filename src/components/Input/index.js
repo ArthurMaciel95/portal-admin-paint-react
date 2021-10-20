@@ -9,7 +9,7 @@ const InputComponent = ({ type, label, onchangeInput }) => {
 
     return (
         <div className="container-input">
-            <input className="mat-input" type={type} required name={label.toLowerCase()} onChange={(e) => { setText(e.target.value) }} />
+            <input className="mat-input" type={type} required name={label.toLowerCase()} value={text} onChange={(e) => { setText(e.target.value) }} />
             <label className="mat-label" htmlFor="email">{label}</label>
         </div>
     )

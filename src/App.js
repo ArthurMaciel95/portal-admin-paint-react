@@ -5,7 +5,7 @@ import AccountDetail from "./pages/account-detail";
 import CreateAccount from "./pages/create-account";
 import Dashboard from "./pages/dashboard";
 import PageNotFound from "./pages/page-not-found";
-import CreateClient from "./pages/CreateClient";
+import CreateClient from "./pages/create-clients";
 
 
 function App() {

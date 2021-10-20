@@ -1,7 +1,7 @@
 import React from "react";
-import SideBarComponent from "../../components/SidebarComponent";
+import SideBarComponent from "../../components/Sidebar";
 import "./styles.css";
-import LoginComponent from "../../components/LoginComponent";
+import LoginComponent from "../../components/Login";
 
 
 const Login = () => {

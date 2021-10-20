@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import BreadCrumbComponent from '../breadCrumbComponent'
+import BreadCrumbComponent from '../BreadCrumb'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
-import InputComponent from '../InputComponent'
+import InputComponent from '../Input'
 import environment from '../../environment'
-import LoadingCircleComponent from '../LoadingCircleComponent'
-import TableComponent from '../TableComponent'
+import LoadingCircleComponent from '../LoadingCircle'
+import TableComponent from '../Table'
 import './styles.css'
 
 const DashboardComponent = () => {
@@ -12,7 +12,10 @@ const DashboardComponent = () => {
         icon: iconAccount,
         page: 'Clientes'
     }
-
+    const [name, setName] = useState('')
+    const [company, setCompany] = useState('')
+    const [status, setStatus] = useState('')
+    const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     async function getData() {
@@ -36,6 +39,12 @@ const DashboardComponent = () => {
             console.error(e)
         }
     }
+    const onChangeInput = (text) => {
+        setName()
+        setCompany()
+        setStatus()
+        setEmail()
+    }
 
     useEffect(() => {
         getData()
@@ -51,12 +60,12 @@ const DashboardComponent = () => {
                 <div className="dashboard-filter">
                     <h4>Filtrar por:</h4>
                     <div className="input-area">
-                        <InputComponent type="text" label="Nome" />
-                        <InputComponent type="text" label="Empresa" />
+                        <InputComponent type="text" label="Nome" onchangeInput={onChangeInput} />
+                        <InputComponent type="text" label="Empresa" onchangeInput={onChangeInput} />
                     </div>
                     <div className="input-area">
-                        <InputComponent type="text" label="Situação" />
-                        <InputComponent type="text" label="Email" />
+                        <InputComponent type="text" label="Situação" onchangeInput={onChangeInput} />
+                        <InputComponent type="text" label="Email" onchangeInput={onChangeInput} />
                     </div>
                 </div>
                 <div className="dashboard-body">

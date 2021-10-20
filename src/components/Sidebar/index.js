@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import logo from "../../assets/images/logo.png";
 import iconUser from "../../assets/svg/account_circle.svg";
 import iconDollar from "../../assets/svg/fa-solid_dollar-sign.svg";
@@ -9,6 +8,7 @@ import iconArrowDown from "../../assets/svg/keyboard_arrow_down.svg";
 import iconCopyright from "../../assets/svg/copyright.svg";
 import iconBuild from "../../assets/svg/build.svg";
 import iconProducts from '../../assets/svg/box_products.svg'
+import "./styles.css";
 
 const SideBarComponent = () => {
     const icon = [iconUser, iconDollar, iconSecurity, iconInfo, iconProducts]
