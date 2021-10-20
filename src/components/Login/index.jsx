@@ -4,11 +4,12 @@ import InputComponent from '../Input'
 import environment from '../../environment'
 import ButtonComponent from '../Button'
 import LoadingComponent from '../Loading'
-import jwtVerify from "../../services/local-storage";
+import jwtVerify from "../../utils/jwt";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import ErroMessageComponent from "../ErroMessage";
-
+import formatter from "../../utils/formatter";
+import buffer from "../../utils/buffer";
 const LoginComponent = () => {
 
     const [email, setEmail] = useState('')
@@ -17,68 +18,64 @@ const LoginComponent = () => {
     const [disabled, setDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
 
-    const isNull = (text) => {
-        if (typeof text == 'null' || text.length === 0 || text === '') {
-            return true
-        }
-        return false
+
+
+    const clearMessage = () => {
+        return setErrorMessage({ error: false, message: undefined })
     }
 
     const login = async () => {
-        setLoading(true)
-        const toBase64 = `${email}:${password}`
-        const encoded = new Buffer(toBase64, 'base64').toString("ascii")
-        console.log(encoded)
-        const payload = { email, password }
+        try {
+            clearMessage()
+            setLoading(true)
+            const toBase64 = `${email}:${password}`
+            const encoded = buffer.encoded(toBase64, 'base64')
 
-        console.log(JSON.stringify(payload))
-        const path = `${environment.baseURL}/user/access`
-        const result = await fetch(path, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload),
+            console.log(encoded)
+            const payload = { email, password }
 
 
-        }).then(response => response.json()).catch(e => console.log(e))
-        setLoading(false)
-        console.log(result)
-        if (!result?.status) {
-            setDisabled(true)
-            return setErrorMessage({ error: true, message: result.message })
+            const path = `${environment.baseURL}/user/access`
+            const result = await fetch(path, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            }).then(response => response.json())
+            const data = await result.json()
+
+            setDisabled(false)
+            setLoading(false)
+
+            console.log(result)
+            if (!data?.status) {
+
+                return setErrorMessage({ error: true, message: data.message })
+            }
+
+            if (data.status && !jwtVerify.isEqual(data.token, 'jwt_token')) {
+                const token = data.token
+                token && localStorage.setItem('jwt_token', JSON.stringify(data.token))
+            }
+        } catch (e) {
+
         }
-
-        if (jwtVerify.isEqual(result.token, 'jwt_token')) {
-            if (result?.status) {
-
-                const token = result.token
-                token && localStorage.setItem('jwt_token', JSON.stringify(result.token))
-            };
-        }
-
-
-
     }
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
         setDisabled(true)
-        if (isNull(email) || isNull(password)) {
+        if (formatter.isNull(email) || formatter.isNull(password)) {
             setDisabled(false)
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
         login()
     };
 
-    const onchangeInput = (email, password) => {
-        setPassword(password)
-        setEmail(email)
-
-
-    }
-
+    /*   const onchangeInput = (email, password) => {
+          setPassword(password)
+          setEmail(email)
+      } */
 
     return (
         <> {loading && <LoadingComponent />}

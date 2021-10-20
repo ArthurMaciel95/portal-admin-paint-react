@@ -13,6 +13,16 @@ const jwtVerify = {
         if (!localStorage.getItem(name) && !localStorage.getItem(name) !== token) {
             return true;
         }
+    },
+    /**
+     * Resgata o token jwt do localStorage.
+     * @returns {object}
+     */
+    getToken: () => {
+        if (!localStorage.getItem('jwt_token')) {
+            throw new Error('token jwt not found.')
+        }
+        return JSON.parse(localStorage.getItem('jwt_token'))
     }
 }
 

@@ -1,0 +1,9 @@
+{
+    "sideBar": {
+        "clientes": "Clients",
+        "Faturamento": "Revenues",
+        "Segurança": "Safety",
+        "Informações": "Information",
+        "Produtos": "Products"
+    }
+}
