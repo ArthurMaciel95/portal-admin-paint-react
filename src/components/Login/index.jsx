@@ -31,7 +31,6 @@ const LoginComponent = () => {
             const toBase64 = `${email}:${password}`
             const encoded = buffer.encoded(toBase64, 'base64')
 
-            console.log(encoded)
             const payload = { email, password }
 
 
@@ -40,13 +39,13 @@ const LoginComponent = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
-            }).then(response => response.json())
+            })
             const data = await result.json()
 
             setDisabled(false)
             setLoading(false)
 
-            console.log(result)
+            console.log(data)
             if (!data?.status) {
 
                 return setErrorMessage({ error: true, message: data.message })
@@ -57,7 +56,7 @@ const LoginComponent = () => {
                 token && localStorage.setItem('jwt_token', JSON.stringify(data.token))
             }
         } catch (e) {
-
+            console.log(e)
         }
     }
 

@@ -93,7 +93,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                             <option value="10">100</option>
                         </select>
                     </div>
-                    <div>
+                    <div className="change-page">
                         <p>Página 1 de 10</p>
                         <span>
                             <object data={IconArrowRight} type=""></object>

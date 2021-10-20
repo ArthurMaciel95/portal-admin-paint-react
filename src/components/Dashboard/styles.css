@@ -28,7 +28,7 @@
 .dashboard-container .dashboard-body{
     margin-top: 20px;
     border-radius: 4px;
-    height: 400px;
+    height: auto;
     background-color: var(--sidebar-background);
     box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
 }

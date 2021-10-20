@@ -1,5 +1,6 @@
 .dashboard-container .dashboard-body table{
     width: 100%;
+    min-width: 800px;
     border-collapse: collapse;
     border-radius: 4px;
 }
@@ -35,11 +36,12 @@
     cursor: pointer;
 }
 .dashboard-container .dashboard-body table tbody tr  .image-area{
+    text-align: left;
+    width: 50px;
 
-  
 }
 .dashboard-container .dashboard-body table tbody tr  .image-area img{
-    
+
  
 }
 .dashboard-container .dashboard-body table tbody tr td p{}
@@ -73,12 +75,31 @@
 }
 
 .icon-pay-method svg{
-
     width: 8px;
     height: 8px;
+    margin-right: 10px;
 }
 .pay-area{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.pagination{
+    display: flex;
+    font-size: var(--text-xsmall);
+
+}
+.pagination > div{
+    display: flex;
+}
+.pagination .change-page{
+    display: flex;
+}
+.pagination .change-page span{
+    display: flex;
+}
+.pagination .change-page span object{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;    
 }

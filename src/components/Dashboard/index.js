@@ -3,8 +3,9 @@ import BreadCrumbComponent from '../BreadCrumb'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
 import InputComponent from '../Input'
 import environment from '../../environment'
-import LoadingCircleComponent from '../LoadingCircle'
+import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
+import jwtVerify from '../../utils/jwt'
 import './styles.css'
 
 const DashboardComponent = () => {
@@ -19,12 +20,13 @@ const DashboardComponent = () => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     async function getData() {
+        const token = jwtVerify.getToken()
         try {
             const url = `${environment.baseURL}/client/list`
             const option = {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' + environment.token
+                    'Authorization': 'Bearer ' + token
                 }
             }
             const result = await fetch(url, option)
@@ -52,7 +54,7 @@ const DashboardComponent = () => {
 
     return (
         <>
-            {loading && <LoadingCircleComponent status={loading} />}
+            {loading && <LoadingComponent status={loading} />}
             <section className="dashboard-container">
                 <div className="dashboard-header">
                     <BreadCrumbComponent crumb={Crumb} />

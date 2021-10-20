@@ -12,7 +12,7 @@
 
 /* card login */
 .login-card-content{
-    margin-left: 20px;
+
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -23,17 +23,17 @@
     background: var(--sidebar-background);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     width: 
-    350px;
-    height: 560px;
+    300px;
+ 
     margin: auto;
-    padding: 30px 90px 20px 70px;
+    padding: 40px 90px 40px 70px;
 }
 .login-title{
     font-size: 17px;
   
 }
 .login-content .illustration-login{
-    margin-left: 45px;
+   
 }
 .form-login h3{
     font-size: 14px;

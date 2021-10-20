@@ -9,7 +9,7 @@
     border: none;
     width: 260px;
     height: 30px;
-    border-bottom: 1px solid rgb(189, 189, 189);
+    border-bottom: 2px solid rgb(189, 189, 189);
     transition: 0.4s top ease;
 }
 
@@ -34,6 +34,6 @@
 
 .container-input .mat-input:focus,
 .container-input .mat-input:valid {
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
     transition: 0.4s top ease;
 }
