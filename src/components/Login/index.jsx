@@ -18,21 +18,17 @@ const LoginComponent = () => {
     const [disabled, setDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
 
-
-
     const clearMessage = () => {
         return setErrorMessage({ error: false, message: undefined })
     }
 
     const login = async () => {
         try {
-            clearMessage()
-            setLoading(true)
+            clearMessage();
+            setLoading(true);
             const toBase64 = `${email}:${password}`
-            const encoded = buffer.encoded(toBase64, 'base64')
-
+            const encoded = buffer.encoded(toBase64, 'base64');
             const payload = { email, password }
-
 
             const path = `${environment.baseURL}/user/access`
             const result = await fetch(path, {
@@ -40,32 +36,34 @@ const LoginComponent = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             })
-            const data = await result.json()
+            const data = await result.json();
 
-            setDisabled(false)
-            setLoading(false)
+            setDisabled(false);
+            setLoading(false);
 
-            console.log(data)
+            console.log(data);
             if (!data?.status) {
 
-                return setErrorMessage({ error: true, message: data.message })
+                return setErrorMessage({ error: true, message: data.message });
             }
 
             if (data.status && !jwtVerify.isEqual(data.token, 'jwt_token')) {
                 const token = data.token
-                token && localStorage.setItem('jwt_token', JSON.stringify(data.token))
+                token && localStorage.setItem('jwt_token', JSON.stringify(data.token));
             }
+
+
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
     }
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        setDisabled(true)
+        setDisabled(true);
         if (formatter.isNull(email) || formatter.isNull(password)) {
-            setDisabled(false)
+            setDisabled(false);
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
         login()
