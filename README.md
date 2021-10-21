@@ -23,4 +23,11 @@ Depois entre na pasta do projeto é utilize o sequinte comando:
 
 ``npm start``
 
+## como consumir a api?
+
+ todas (com exceção de login) as requisições devem ser passadas o token jwt pelos headers.
+ 
+ 
+
+
 
