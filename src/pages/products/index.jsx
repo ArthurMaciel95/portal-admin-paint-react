@@ -4,7 +4,7 @@ import SideBarComponent from '../../components/Sidebar'
 
 const Products = () => {
     return (
-        <div>
+        <div className="container">
             <SideBarComponent />
         </div>
     )

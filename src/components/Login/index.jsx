@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoginIlustration from '../../assets/images/login_illustrator.png'
 import InputComponent from '../Input'
+import { } from "react-router-dom";
 import environment from '../../environment'
 import ButtonComponent from '../Button'
 import LoadingComponent from '../Loading'
@@ -26,15 +27,16 @@ const LoginComponent = () => {
         try {
             clearMessage();
             setLoading(true);
-            const toBase64 = `${email}:${password}`
-            const encoded = buffer.encoded(toBase64, 'base64');
-            const payload = { email, password }
+            const payload = `${email}:${password}`
+            const encoded = buffer.encoded(payload, 'base64');
 
             const path = `${environment.baseURL}/user/access`
             const result = await fetch(path, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + encoded
+                },
             })
             const data = await result.json();
 
@@ -87,7 +89,7 @@ const LoginComponent = () => {
                             <form onSubmit={handleSubmit} method="post">
                                 <input className="mat-input" type="text" name="email" value={email} disabled={disabled} placeholder="email" onChange={(e) => { setEmail(e.target.value) }} />
                                 {/* <label className="mat-label" htmlFor="email">email</label> */}
-                                <input className="mat-input" type="text" name="password" value={password} disabled={disabled} placeholder="senha" onChange={(e) => { setPassword(e.target.value) }} />
+                                <input className="mat-input" type="password" name="password" value={password} disabled={disabled} placeholder="senha" onChange={(e) => { setPassword(e.target.value) }} />
                                 {/* <label className="mat-label" htmlFor="email">Senha</label> */}
                                 {/*  <InputComponent label="Email" type="text" disabled={disabled} onchangeInput={onchangeInput} />
                            <InputComponent label="Senha" type="text" disabled={disabled} onchangeInput={onchangeInput} /> */}
