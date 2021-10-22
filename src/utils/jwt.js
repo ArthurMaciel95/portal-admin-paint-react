@@ -23,6 +23,24 @@ const jwtVerify = {
             throw new Error('token jwt not found.')
         }
         return JSON.parse(localStorage.getItem('jwt_token'))
+    },
+
+    isAuthenticated: () => {
+        return localStorage.getItem('jwt_token') !== null;
+    },
+
+    logOut: () => {
+        return localStorage.removeItem('jwt_token');
+    },
+    /**
+     * 
+     * @param {string} status Situação da requisição 
+     * @param {string} token chave que é enviada quando logamos.
+     */
+    setNewToken: (status, token) => {
+        if (status) {
+            token && localStorage.setItem('jwt_token', JSON.stringify(token));
+        }
     }
 }
 
