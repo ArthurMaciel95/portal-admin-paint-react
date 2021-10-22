@@ -5,7 +5,7 @@ import InputComponent from '../Input'
 import environment from '../../environment'
 import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
-import jwt from '../../utils/jwt'
+import jwtVerify from '../../utils/jwt'
 import './styles.css'
 
 const DashboardComponent = () => {
@@ -20,17 +20,18 @@ const DashboardComponent = () => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     async function getData() {
-        const token = jwt.getToken()
         try {
+
             const url = `${environment.baseURL}/client/list`
             const option = {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' + token
+                    'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTcwNmMzMjBlN2NmYzFlOGNjMTk3MDEiLCJ1c2VybmFtZSI6ImFydGh1ciIsImVtYWlsIjoiYXJ0aHVybm1yb2NoYUBnbWFpbC5jb20iLCJjcmVhdGVkX2F0IjoiMjAyMS0xMC0yMFQxOToyMToyMi43NjBaIiwidXBkYXRlZF9hdCI6IjIwMjEtMTAtMjBUMTk6MjE6MjIuNzYwWiIsIl9fdiI6MCwiaWF0IjoxNjM0OTE2MDY0LCJleHAiOjE2MzQ5MTk2NjR9.sSNYYtEaDY1C4xnBFbtD-8-RS7zmhKWnt-Qv-m3xCu0"
                 }
             }
             const result = await fetch(url, option)
             const data = await result.json()
+
             setUser(data.clients)
             setTimeout(() => {
                 setLoading(false)

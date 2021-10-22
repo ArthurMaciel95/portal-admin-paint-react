@@ -36,8 +36,8 @@
     cursor: pointer;
 }
 .dashboard-container .dashboard-body table tbody tr  .image-area{
-    text-align: left;
-    width: 50px;
+
+
 
 }
 .dashboard-container .dashboard-body table tbody tr  .image-area img{
@@ -74,6 +74,7 @@
     border-radius: 50%;
 }
 
+
 .icon-pay-method svg{
     width: 8px;
     height: 8px;
@@ -84,22 +85,50 @@
     justify-content: center;
     align-items: center;
 }
-.pagination{
-    display: flex;
-    font-size: var(--text-xsmall);
 
+
+.pagination{
+    margin: 20px 10px;
+    font-size: var(--text-xsmall);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--text-color-gray);
 }
 .pagination > div{
     display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.pagination > div p{
+
+}
+.pagination > div select{
+    background-color: white;
+    margin-left: 10px;
+    border: none;
+    height: 25px;
+    border-bottom: 2px solid var(--primary-color);
+}
+.pagination > div select option{
+    border: none;
+    border-radius: 4px;
+    border-bottom: rgb(206, 206, 206);
+    
+
 }
 .pagination .change-page{
     display: flex;
 }
+.pagination .change-page p{
+    margin-right: 10px;
+}
 .pagination .change-page span{
     display: flex;
+    
 }
 .pagination .change-page span object{
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;    
 }

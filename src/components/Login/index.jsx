@@ -23,26 +23,28 @@ const LoginComponent = () => {
         return setErrorMessage({ error: false, message: undefined })
     }
 
+    const finished = () => {
+        setLoading(true)
+        setDisabled(true);
+    }
+
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        setLoading(true)
-        setDisabled(true);
+        finished()
         if (formatter.isNull(email) || formatter.isNull(password)) {
-            setDisabled(false);
-            setLoading(false);
+            finished()
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
         const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
 
-        setDisabled(false);
-        setLoading(false);
+        finished()
         if (!result?.status) {
             return setErrorMessage({ error: true, message: result.message });
         }
         clearMessage();
         jwtVerify.setNewToken(result.status, result.token)
-
+        window.location.href = 'http://localhost:3002/dashboard'
     };
 
     useEffect(() => {

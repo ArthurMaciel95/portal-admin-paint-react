@@ -25,7 +25,7 @@ const jwtVerify = {
 
     /**
      * Resgata o token jwt do localStorage.
-     * @returns {object}
+     * @returns {string}
      */
     getToken: () => {
         if (!localStorage.getItem('jwt_token')) {

@@ -5,7 +5,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={props => jwtVerify.isAuthenticated() ? (
+            render={props => jwtVerify.isAuthenticated() && !jwtVerify.isTokenExpired(jwtVerify.getToken()) ? (
                 <Component {...props} />
             ) : (
                 <Redirect to={{
