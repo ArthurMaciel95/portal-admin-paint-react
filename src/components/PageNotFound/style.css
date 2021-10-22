@@ -13,16 +13,25 @@
     width: 350px;
 }
 .not-found-description{
-    color: var(--text-color-gray);
-    margin-bottom: 10px;
+    color: rgb(65, 65, 65);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
 }
 .not-found-description h1{
     font-size: 30px;
+
+}
+.not-found-description p{
+    margin: 20px 0px;
+    color: var(--text-color-gray);
 }
 .not-found-description a{
+    color: white;
+    font-weight: 700;
+    width: fit-content;
+    padding: 14px 30px;
+    border-radius: 4px;
     text-decoration: none;
-    color: var(--primary-color);
-}
-.not-found-description a:hover{
-    text-decoration: underline;
+    background: var(--primary-color);
 }

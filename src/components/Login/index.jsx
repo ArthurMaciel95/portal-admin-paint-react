@@ -23,11 +23,10 @@ const LoginComponent = () => {
         return setErrorMessage({ error: false, message: undefined })
     }
 
-
-
     const handleSubmit = async (e) => {
-        clearMessage();
+
         e.preventDefault();
+        setLoading(true)
         setDisabled(true);
         if (formatter.isNull(email) || formatter.isNull(password)) {
             setDisabled(false);
@@ -35,13 +34,13 @@ const LoginComponent = () => {
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
         const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
-        console.log(result)
+
         setDisabled(false);
         setLoading(false);
         if (!result?.status) {
-
             return setErrorMessage({ error: true, message: result.message });
         }
+        clearMessage();
         jwtVerify.setNewToken(result.status, result.token)
 
     };
@@ -50,10 +49,10 @@ const LoginComponent = () => {
         jwtVerify.logOut()
     }, [])
 
-    const onchangeInput = (email, password) => {
-        setPassword(password)
-        setEmail(email)
-    }
+    /*  const onchangeInput = (email, password) => {
+         setPassword(password)
+         setEmail(email)
+     } */
 
     return (
         <> {loading && <LoadingComponent />}

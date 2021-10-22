@@ -25,11 +25,15 @@
     flex-direction: column;
  
 }
-.side-bar .menu__side-bar ul li object{
+.side-bar .menu__side-bar ul a li object{
     
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.side-bar .menu__side-bar ul a{
+    color: var(--text-color-gray);
+    text-decoration: none;
 }
 
 .side-bar .menu__side-bar ul li {

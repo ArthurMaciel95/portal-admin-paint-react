@@ -7,7 +7,6 @@
 .message-area .error-message{
     display: flex;
     align-items: center;
-    width: 100%;
     background-color: rgb(238, 208, 208);
     color: rgb(194, 85, 71);
     padding: 10px;

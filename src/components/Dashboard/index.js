@@ -5,7 +5,7 @@ import InputComponent from '../Input'
 import environment from '../../environment'
 import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
-import jwtVerify from '../../utils/jwt'
+import jwt from '../../utils/jwt'
 import './styles.css'
 
 const DashboardComponent = () => {
@@ -20,7 +20,7 @@ const DashboardComponent = () => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     async function getData() {
-        const token = jwtVerify.getToken()
+        const token = jwt.getToken()
         try {
             const url = `${environment.baseURL}/client/list`
             const option = {

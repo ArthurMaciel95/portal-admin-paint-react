@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const SideBarComponent = () => {
     const icon = [iconUser, iconDollar, iconSecurity, iconInfo, iconProducts]
     const textOptionMenu = [
-        { name: 'Clientes', path: '/clients/dashboard' },
+        { name: 'Clientes', path: '/dashboard' },
         { name: 'Faturamento', path: '/revenues' },
         { name: 'Segurança', path: '/security' },
         { name: 'Informação', path: '/information' },

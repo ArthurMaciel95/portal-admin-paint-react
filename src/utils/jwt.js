@@ -1,3 +1,4 @@
+import buffer from "./buffer";
 const jwtVerify = {
 
     /**
@@ -14,6 +15,14 @@ const jwtVerify = {
             return true;
         }
     },
+
+    /**
+     *  Verifica se o token expirou.
+     * @param {string} token insira o token JWT
+     * @returns {boolean} retorna um boleano.
+     */
+    isTokenExpired: (token) => (Date.now() >= JSON.parse(buffer.decoded(token.split('.')[1], 'utf-8')).exp * 1000),
+
     /**
      * Resgata o token jwt do localStorage.
      * @returns {object}
@@ -25,6 +34,10 @@ const jwtVerify = {
         return JSON.parse(localStorage.getItem('jwt_token'))
     },
 
+    /**
+     *  Verifica se existe token no localstorage.
+     * @returns boolean
+     */
     isAuthenticated: () => {
         return localStorage.getItem('jwt_token') !== null;
     },

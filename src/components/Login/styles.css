@@ -8,8 +8,6 @@
     justify-content: center;
 }
 
-
-
 /* card login */
 .login-card-content{
 
@@ -22,9 +20,6 @@
 .login-content{
     background: var(--sidebar-background);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    width: 
-    300px;
- 
     margin: auto;
     padding: 40px 90px 40px 70px;
 }
