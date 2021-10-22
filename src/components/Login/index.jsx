@@ -40,6 +40,7 @@ const LoginComponent = () => {
 
         finished()
         if (!result?.status) {
+
             return setErrorMessage({ error: true, message: result.message });
         }
         clearMessage();

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import BreadCrumbComponent from '../BreadCrumb'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
+import imageFilter from '../../assets/images/filter_menu_illustrator.png'
 import InputComponent from '../Input'
 import environment from '../../environment'
 import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
 import jwtVerify from '../../utils/jwt'
+
 import './styles.css'
 
 const DashboardComponent = () => {
@@ -13,12 +15,14 @@ const DashboardComponent = () => {
         icon: iconAccount,
         page: 'Clientes'
     }
+
     const [name, setName] = useState('')
     const [company, setCompany] = useState('')
     const [status, setStatus] = useState('')
     const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
+
     async function getData() {
         try {
 
@@ -26,7 +30,7 @@ const DashboardComponent = () => {
             const option = {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTcwNmMzMjBlN2NmYzFlOGNjMTk3MDEiLCJ1c2VybmFtZSI6ImFydGh1ciIsImVtYWlsIjoiYXJ0aHVybm1yb2NoYUBnbWFpbC5jb20iLCJjcmVhdGVkX2F0IjoiMjAyMS0xMC0yMFQxOToyMToyMi43NjBaIiwidXBkYXRlZF9hdCI6IjIwMjEtMTAtMjBUMTk6MjE6MjIuNzYwWiIsIl9fdiI6MCwiaWF0IjoxNjM0OTE2MDY0LCJleHAiOjE2MzQ5MTk2NjR9.sSNYYtEaDY1C4xnBFbtD-8-RS7zmhKWnt-Qv-m3xCu0"
+                    'Authorization': 'Bearer ' + jwtVerify.getToken()
                 }
             }
             const result = await fetch(url, option)
@@ -51,6 +55,7 @@ const DashboardComponent = () => {
 
     useEffect(() => {
         getData()
+
     }, [])
 
     return (
@@ -62,14 +67,21 @@ const DashboardComponent = () => {
                 </div>
                 <div className="dashboard-filter">
                     <h4>Filtrar por:</h4>
-                    <div className="input-area">
-                        <InputComponent type="text" label="Nome" onchangeInput={onChangeInput} />
-                        <InputComponent type="text" label="Empresa" onchangeInput={onChangeInput} />
+                    <div className="col1">
+
+                        <div className="input-area">
+
+                            <InputComponent type="text" label="Nome" onchangeInput={onChangeInput} />
+                            <InputComponent type="text" label="Empresa" onchangeInput={onChangeInput} />
+                        </div>
+                        <div className="input-area">
+                            <InputComponent type="text" label="Situação" onchangeInput={onChangeInput} />
+                            <InputComponent type="text" label="Email" onchangeInput={onChangeInput} />
+
+                        </div>
+                        <object data={imageFilter} type=""></object>
                     </div>
-                    <div className="input-area">
-                        <InputComponent type="text" label="Situação" onchangeInput={onChangeInput} />
-                        <InputComponent type="text" label="Email" onchangeInput={onChangeInput} />
-                    </div>
+
                 </div>
                 <div className="dashboard-body">
                     <TableComponent

@@ -6,9 +6,7 @@ const Context = createContext()
 const AuthProvider = ({ children }) => {
     const [authenticated, setAuthenticated] = useState(false)
 
-    const handleLogin = () => {
 
-    }
     return (
         <Context.Provider value={{ authenticated }}>
             {children}

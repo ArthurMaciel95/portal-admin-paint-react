@@ -13,23 +13,26 @@ import { AuthProvider } from "./context/AuthContext";
 import Revenues from './pages/revenues';
 import Security from './pages/security';
 import Information from './pages/information';
+import { CurrenteProvider } from './context/UserContext';
 const Router = () => {
     return (
         <BrowserRouter>
             <AuthProvider>
-                <Switch>
-                    <PrivateRoute path="/dashboard" component={Dashboard} />
-                    <PrivateRoute exact path="/create/account" component={CreateAccount} />
-                    <PrivateRoute path="/account/detail" component={AccountDetail} />
-                    <PrivateRoute path="/create/client" component={CreateClient} />
-                    <PrivateRoute exact path="/create/products" component={CreateProducts} />
-                    <PrivateRoute path="/revenues" component={Revenues} />
-                    <PrivateRoute path="/security" component={Security} />
-                    <PrivateRoute path="/products" component={Products} />
-                    <PrivateRoute path="/information" component={Information} />
-                    <Route exact path="/" component={Login} />
-                    <Route path="*" component={PageNotFound} />
-                </Switch>
+                <CurrenteProvider>
+                    <Switch>
+                        <PrivateRoute path="/dashboard" component={Dashboard} />
+                        <PrivateRoute exact path="/create/account" component={CreateAccount} />
+                        <PrivateRoute path="/account/detail" component={AccountDetail} />
+                        <PrivateRoute path="/create/client" component={CreateClient} />
+                        <PrivateRoute exact path="/create/products" component={CreateProducts} />
+                        <PrivateRoute path="/revenues" component={Revenues} />
+                        <PrivateRoute path="/security" component={Security} />
+                        <PrivateRoute path="/products" component={Products} />
+                        <PrivateRoute path="/information" component={Information} />
+                        <Route exact path="/" component={Login} />
+                        <Route path="*" component={PageNotFound} />
+                    </Switch>
+                </CurrenteProvider>
             </AuthProvider>
         </BrowserRouter>
     )

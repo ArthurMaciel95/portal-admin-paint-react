@@ -9,9 +9,12 @@
 .dashboard-container .dashboard-filter{
     border-radius: 4px;
     padding: 20px;
-    height: 130px;
+
     background-color: var(--sidebar-background);
     box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+}
+.dashboard-container .col1{
+    display: flex;
 }
 .dashboard-container .dashboard-filter h4{
     font-weight: 500;
@@ -20,10 +23,7 @@
 }
 .dashboard-container .dashboard-filter .input-area{
     display: flex;
-    width: 45%;
-    height: 40%;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 .dashboard-container .dashboard-body{
     margin-top: 20px;

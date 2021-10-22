@@ -29,7 +29,7 @@ const SideBarComponent = () => {
                     <div className="menu__side-bar">
                         <ul>
                             {textOptionMenu.map(({ name, path }, i) => (
-                                <Link to={path}>
+                                <Link to={path} key={i}>
                                     <li key={i}>
                                         <object data={icon[i]} type=""></object>
                                         <p>{name}</p>
