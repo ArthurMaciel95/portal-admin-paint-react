@@ -10,7 +10,7 @@
     margin-bottom: 15px;
 }
 .btn:disabled{
-    filter: grayscale(30%);
+    filter: grayscale(100%);
 }
 
 .btn-detail{
