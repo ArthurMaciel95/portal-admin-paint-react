@@ -9,10 +9,18 @@ import iconCopyright from "../../assets/svg/copyright.svg";
 import iconBuild from "../../assets/svg/build.svg";
 import iconProducts from '../../assets/svg/box_products.svg'
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const SideBarComponent = () => {
     const icon = [iconUser, iconDollar, iconSecurity, iconInfo, iconProducts]
-    const textOptionMenu = ['Clientes', 'Faturamento', 'Segurança', 'Informação', 'Produtos']
+    const textOptionMenu = [
+        { name: 'Clientes', path: '/clients/dashboard' },
+        { name: 'Faturamento', path: '/revenues' },
+        { name: 'Segurança', path: '/security' },
+        { name: 'Informação', path: '/information' },
+        { name: 'Produtos', path: '/products' }
+    ]
+
     return (
         <>
             <aside className="side-bar">
@@ -20,12 +28,14 @@ const SideBarComponent = () => {
                     <img className="logo" src={logo} alt="logo marca paint" />
                     <div className="menu__side-bar">
                         <ul>
-                            {textOptionMenu.map((option, i) => (
-                                <li key={i}>
-                                    <object data={icon[i]} type=""></object>
-                                    <p>{option}</p>
-                                    <object data={iconArrowDown} type=""></object>
-                                </li>
+                            {textOptionMenu.map(({ name, path }, i) => (
+                                <Link to={path}>
+                                    <li key={i}>
+                                        <object data={icon[i]} type=""></object>
+                                        <p>{name}</p>
+                                        <object data={iconArrowDown} type=""></object>
+                                    </li>
+                                </Link>
                             ))}
 
                         </ul>
