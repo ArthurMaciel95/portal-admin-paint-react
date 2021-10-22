@@ -13,7 +13,7 @@ const CurrenteProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        setCurrentUser(getUser())
+
     }, [])
     return (
         <Context.Provider value={{ currentUser }}>
