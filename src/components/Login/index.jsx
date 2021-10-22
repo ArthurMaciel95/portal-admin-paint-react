@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import LoginIlustration from '../../assets/images/login_illustrator.png'
 import InputComponent from '../Input'
 import { } from "react-router-dom";
-import environment from '../../environment'
 import ButtonComponent from '../Button'
 import LoadingComponent from '../Loading'
 import jwtVerify from "../../utils/jwt";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { user } from '../../services/user-service'
 import ErroMessageComponent from "../ErroMessage";
 import formatter from "../../utils/formatter";
-import buffer from "../../utils/buffer";
+import { Context } from "../../context/AuthContext";
 const LoginComponent = () => {
-
+    const { authenticated } = useContext(Context)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState({ error: false, message: undefined })
@@ -23,58 +23,37 @@ const LoginComponent = () => {
         return setErrorMessage({ error: false, message: undefined })
     }
 
-    const login = async () => {
-        try {
-            clearMessage();
-            setLoading(true);
-            const payload = `${email}:${password}`
-            const encoded = buffer.encoded(payload, 'base64');
-
-            const path = `${environment.baseURL}/user/access`
-            const result = await fetch(path, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + encoded
-                },
-            })
-            const data = await result.json();
-
-            setDisabled(false);
-            setLoading(false);
-
-            console.log(data);
-            if (!data?.status) {
-
-                return setErrorMessage({ error: true, message: data.message });
-            }
-
-            if (data.status && !jwtVerify.isEqual(data.token, 'jwt_token')) {
-                const token = data.token
-                token && localStorage.setItem('jwt_token', JSON.stringify(data.token));
-            }
 
 
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    const handleSubmit = (e) => {
-
+    const handleSubmit = async (e) => {
+        clearMessage();
         e.preventDefault();
         setDisabled(true);
         if (formatter.isNull(email) || formatter.isNull(password)) {
             setDisabled(false);
+            setLoading(false);
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
-        login()
+        const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
+        console.log(result)
+        setDisabled(false);
+        setLoading(false);
+        if (!result?.status) {
+
+            return setErrorMessage({ error: true, message: result.message });
+        }
+        jwtVerify.setNewToken(result.status, result.token)
+
     };
 
-    /*   const onchangeInput = (email, password) => {
-          setPassword(password)
-          setEmail(email)
-      } */
+    useEffect(() => {
+        jwtVerify.logOut()
+    }, [])
+
+    const onchangeInput = (email, password) => {
+        setPassword(password)
+        setEmail(email)
+    }
 
     return (
         <> {loading && <LoadingComponent />}
