@@ -44,6 +44,7 @@ const LoginComponent = () => {
         }
         clearMessage();
         jwtVerify.setNewToken(result.status, result.token)
+        //tenho que achar um jeito de trocar de pagina melhor .
         window.location.href = 'http://localhost:3001/dashboard'
     };
 

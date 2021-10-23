@@ -34,6 +34,13 @@ const jwtVerify = {
         return JSON.parse(localStorage.getItem('jwt_token'))
     },
 
+    getPayloadJwt: () => {
+        const token = JSON.parse(localStorage.getItem('jwt_token'))
+        const payload = token.split('.')[1];
+        const decoded = buffer.decoded(payload, 'utf-8');
+        return decoded
+    },
+
     /**
      *  Verifica se existe token no localstorage.
      * @returns boolean

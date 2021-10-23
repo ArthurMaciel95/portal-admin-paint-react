@@ -7,6 +7,7 @@ import environment from '../../environment'
 import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
 import jwtVerify from '../../utils/jwt'
+import noAvatar from '../../assets/images/no-avatar.png'
 
 import './styles.css'
 
@@ -52,10 +53,15 @@ const DashboardComponent = () => {
         setStatus()
         setEmail()
     }
+    const getUser = () => {
+        const user = jwtVerify.getPayloadJwt()
+        return 'oi'
+
+    }
 
     useEffect(() => {
         getData()
-
+        getUser()
     }, [])
 
     return (
@@ -64,6 +70,15 @@ const DashboardComponent = () => {
             <section className="dashboard-container">
                 <div className="dashboard-header">
                     <BreadCrumbComponent crumb={Crumb} />
+                    <div className="profile-area">
+                        <div className="image-area">
+                            <img src={noAvatar} alt="sem foto" />
+                        </div>
+                        <div className="profile-info">
+                            <p>Arthur Rocha</p>
+                            <p>arthurnmrocha@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="dashboard-filter">
                     <h4>Filtrar por:</h4>
