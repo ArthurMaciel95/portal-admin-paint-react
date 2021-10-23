@@ -1,5 +1,5 @@
 import React from "react";
-import SideBarComponent from "../../components/Sidebar";
+import SideBarLogin from "../../components/sideBarLogin";
 import "./styles.css";
 import LoginComponent from "../../components/Login";
 
@@ -11,7 +11,7 @@ const Login = () => {
     return (
 
         <div className="container">
-            <SideBarComponent />
+            <SideBarLogin />
             <LoginComponent />
         </div>
 

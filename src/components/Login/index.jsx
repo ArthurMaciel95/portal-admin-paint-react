@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import LoginIlustration from '../../assets/images/login_illustrator.png'
 import InputComponent from '../Input'
-import { } from "react-router-dom";
 import ButtonComponent from '../Button'
 import LoadingComponent from '../Loading'
 import jwtVerify from "../../utils/jwt";
@@ -24,8 +23,8 @@ const LoginComponent = () => {
     }
 
     const finished = () => {
-        setLoading(true)
-        setDisabled(true);
+        setLoading(false)
+        setDisabled(false);
     }
 
     const handleSubmit = async (e) => {
@@ -40,12 +39,12 @@ const LoginComponent = () => {
 
         finished()
         if (!result?.status) {
-
+            finished()
             return setErrorMessage({ error: true, message: result.message });
         }
         clearMessage();
         jwtVerify.setNewToken(result.status, result.token)
-        window.location.href = 'http://localhost:3002/dashboard'
+        window.location.href = 'http://localhost:3001/dashboard'
     };
 
     useEffect(() => {
