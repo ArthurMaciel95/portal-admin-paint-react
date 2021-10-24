@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
     baseURL: 'http://localhost:3000',
+    URL_PRODUCTION: 'https://paint-nodejs.herokuapp.com/',
     production: false,
-    token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTY4MTI1MDQ3YzdkMWE3YzkzMmQ0MWYiLCJ1c2VybmFtZSI6Imp1YmlsZWlkb2FncmVzdGUiLCJlbWFpbCI6InBpY2FkZW1lbEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRpa0xyMEMzbFRQaVo0YUFsRDNPTHdlRXQvNHh5STNBNEVKM0d1OW5PbmdVaWhIWGxUdWxKYSIsInBhc3N3b3JkX2hhc2giOiIkMmEkMTAkaWtMcjBDM2xUUGlaNGFBbEQzT0x3ZSIsImNyZWF0ZWRfYXQiOiIyMDIxLTEwLTE0VDExOjE5OjQ0LjY2NloiLCJ1cGRhdGVkX2F0IjoiMjAyMS0xMC0xNFQxMToxOTo0NC42NjZaIiwiX192IjowLCJpYXQiOjE2MzQ2ODc5MDksImV4cCI6MTYzNDcwNTkwOX0.bjbU5niZVOVwQVPisZAdsZDts9KALsYj6E3P3X91UGQ',
+    token: '',
 }

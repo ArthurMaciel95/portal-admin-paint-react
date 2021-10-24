@@ -55,7 +55,7 @@ const DashboardComponent = () => {
     }
     const getUser = () => {
         const user = jwtVerify.getPayloadJwt()
-        return 'oi'
+
 
     }
 

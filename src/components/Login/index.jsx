@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom'
 import LoginIlustration from '../../assets/images/login_illustrator.png'
-import InputComponent from '../Input'
 import ButtonComponent from '../Button'
 import LoadingComponent from '../Loading'
 import jwtVerify from "../../utils/jwt";
@@ -9,9 +9,8 @@ import { Link } from "react-router-dom";
 import { user } from '../../services/user-service'
 import ErroMessageComponent from "../ErroMessage";
 import formatter from "../../utils/formatter";
-import { Context } from "../../context/AuthContext";
 const LoginComponent = () => {
-    const { authenticated } = useContext(Context)
+    const redirect = useHistory();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState({ error: false, message: undefined })
@@ -28,34 +27,32 @@ const LoginComponent = () => {
     }
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
         finished()
         if (formatter.isNull(email) || formatter.isNull(password)) {
             finished()
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
-        const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
+        const result = await user.login(email, password).then(response => response)
+            .then(data => data.json())
+            .catch(e => console.error(e))
 
         finished()
-        if (!result?.status) {
+        if (result && !result.status) {
             finished()
             return setErrorMessage({ error: true, message: result.message });
         }
+        if (!result) {
+            return setErrorMessage({ error: true, message: 'Servidor indisponível, Por favor tente mais tarde' })
+        }
         clearMessage();
         jwtVerify.setNewToken(result.status, result.token)
-        //tenho que achar um jeito de trocar de pagina melhor .
-        window.location.href = 'http://localhost:3001/dashboard'
+        redirect.push('/dashboard')
     };
-
     useEffect(() => {
         jwtVerify.logOut()
     }, [])
 
-    /*  const onchangeInput = (email, password) => {
-         setPassword(password)
-         setEmail(email)
-     } */
 
     return (
         <> {loading && <LoadingComponent />}
@@ -69,11 +66,7 @@ const LoginComponent = () => {
                             {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
                             <form onSubmit={handleSubmit} method="post">
                                 <input className="mat-input" type="text" name="email" value={email} disabled={disabled} placeholder="email" onChange={(e) => { setEmail(e.target.value) }} />
-                                {/* <label className="mat-label" htmlFor="email">email</label> */}
                                 <input className="mat-input" type="password" name="password" value={password} disabled={disabled} placeholder="senha" onChange={(e) => { setPassword(e.target.value) }} />
-                                {/* <label className="mat-label" htmlFor="email">Senha</label> */}
-                                {/*  <InputComponent label="Email" type="text" disabled={disabled} onchangeInput={onchangeInput} />
-                           <InputComponent label="Senha" type="text" disabled={disabled} onchangeInput={onchangeInput} /> */}
                                 <Link to="">Esqueci minha senha.</Link>
                                 <ButtonComponent type="submit" value="Entrar" disabled={disabled} />
                             </form>
