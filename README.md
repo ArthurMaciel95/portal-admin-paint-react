@@ -3,7 +3,7 @@
 </div>
   
 <div align="center">
-  <h1>Potal Administrador :rocket:</h1>
+  <h1>Potal Administrativo :rocket:</h1>
 </div>
  
 <p align="center" >
