@@ -20,6 +20,12 @@ export const user = {
             },
         })
     },
+
+    /**
+     * 
+     * @param {object} payload dados para criação de um usuário admin. 
+     * @returns {Promise} retorna uma promise
+     */
     register: async (payload) => {
         return await fetch(`${environment.baseURL}/user/register`, {
             method: 'POST',

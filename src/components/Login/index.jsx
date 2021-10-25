@@ -33,9 +33,10 @@ const LoginComponent = () => {
             finished()
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
-        const result = await user.login(email, password).then(response => response)
-            .then(data => data.json())
-            .catch(e => console.error(e))
+
+        const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
+
+
 
         finished()
         if (result && !result.status) {
