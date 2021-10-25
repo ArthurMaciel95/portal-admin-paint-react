@@ -17,6 +17,7 @@
     color: #fff;
     border-radius: 5px;
     border: none;
+    padding: 2px 14px;
     cursor: pointer;
     background: var(--primary-color);
 }

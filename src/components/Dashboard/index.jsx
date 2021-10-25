@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import BreadCrumbComponent from '../BreadCrumb'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
 import imageFilter from '../../assets/images/filter_menu_illustrator.png'
-import InputComponent from '../Input'
-import environment from '../../environment'
 import LoadingComponent from '../Loading'
 import TableComponent from '../Table'
 import jwtVerify from '../../utils/jwt'
 import noAvatar from '../../assets/images/no-avatar.png'
+import { client } from '../../services/client-service'
+import iconAddClient from '../../assets/svg/playlist_add.svg'
 
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 const DashboardComponent = () => {
     const Crumb = {
@@ -23,20 +24,12 @@ const DashboardComponent = () => {
     const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
+    const [currentUser, setCurrentUser] = useState({})
 
     async function getData() {
         try {
-
-            const url = `${environment.baseURL}/client/list`
-            const option = {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + jwtVerify.getToken()
-                }
-            }
-            const result = await fetch(url, option)
+            const result = await client.list()
             const data = await result.json()
-
             setUser(data.clients)
             setTimeout(() => {
                 setLoading(false)
@@ -55,7 +48,7 @@ const DashboardComponent = () => {
     }
     const getUser = () => {
         const user = jwtVerify.getPayloadJwt()
-
+        setCurrentUser(JSON.parse(user))
 
     }
 
@@ -71,12 +64,22 @@ const DashboardComponent = () => {
                 <div className="dashboard-header">
                     <BreadCrumbComponent crumb={Crumb} />
                     <div className="profile-area">
+                        <Link to="/create/client">
+                            <button>
+                                <img src={iconAddClient} alt="botão de criação de clientes" />
+                                <p>Novo Cliente</p>
+                            </button>
+                        </Link>
                         <div className="image-area">
                             <img src={noAvatar} alt="sem foto" />
                         </div>
+
                         <div className="profile-info">
-                            <p>Arthur Rocha</p>
-                            <p>arthurnmrocha@gmail.com</p>
+                            {
+                                currentUser ? <><p>{currentUser.username}</p>
+                                    <p>{currentUser.email}</p></> : {}
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -86,12 +89,12 @@ const DashboardComponent = () => {
 
                         <div className="input-area">
 
-                            <InputComponent type="text" label="Nome" onchangeInput={onChangeInput} />
-                            <InputComponent type="text" label="Empresa" onchangeInput={onChangeInput} />
+                            <input type="text" id="name" placeholder="Nome" />
+                            <input type="text" id="name" placeholder="Empresa" />
                         </div>
                         <div className="input-area">
-                            <InputComponent type="text" label="Situação" onchangeInput={onChangeInput} />
-                            <InputComponent type="text" label="Email" onchangeInput={onChangeInput} />
+                            <input type="text" id="name" placeholder="Situação" />
+                            <input type="text" id="name" placeholder="Email" />
 
                         </div>
                         <object data={imageFilter} type=""></object>
