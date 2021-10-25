@@ -32,9 +32,10 @@ Link para o Backend:
 https://github.com/ArthurMaciel95/portal-admin-paint-service-node
 
 ## ⚙ Tecnologias
-- NodeJS
-- Express
-- Mongodb
+- React (frontend)
+- NodeJS (backend)
+- Express(backend)
+- Mongodb(backend)
 
 ## 🛠 Instalação
 
