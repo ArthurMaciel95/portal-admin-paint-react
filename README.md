@@ -1,33 +1,71 @@
+<div align="center">
+  <img src='./doc/logo.png' width="245px" />
+</div>
+  
+<div align="center">
+  <h1>Potal Administrador :headphones:</h1>
+</div>
+ 
+<p align="center" >
+  <a href="#-sobre-a-aplica%C3%A7%C3%A3o"> Sobre </a> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-instalação"> Instalação </a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-suporte"> Suporte </a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licen%C3%A7a">Licença</a>
+</p>
 
-## PORTAL ADMIN PAINT REACT
+<p align="center">
+  <a href="https://github.com/ArthurMaciel95" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=author&message=ArthurRocha&color=fff&labelColor=ffdf00" alt="Github"> 
+  </a>
+  <img src="https://img.shields.io/github/stars/ArthurMaciel95/portal-admin-paint-react?color=fff&labelColor=ffdf00" alt="Stars">
+  <img src="https://img.shields.io/github/last-commit/ArthurMaciel95/portal-admin-paint-react?color=fff&labelColor=ffdf00" alt="Commits">
+  <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=fff&labelColor=ffdf00" alt="License">
+</p>
 
-### guia de estilo abaixo
 
-#### figma
+## 📌 Sobre a aplicação
+Esse é o frontend do **Portal Paint**, uma aplicação feita em react.js com a finalidade de entregar informações pertinentes ao seu negócio,
 
+Aplicação construida para fins educacionais, onde pude revisar e treinar conceitos tanto sobre o Front como o Back.
+Link para o Backend:
+https://github.com/ArthurMaciel95/portal-admin-paint-service-node
+
+## ⚙ Tecnologias
+- NodeJS
+- Express
+- Mongodb
+
+## 🛠 Instalação
+
+```bash
+# Clone esse repositório
+$ git clone <https://github.com/ArthurMaciel95/portal-admin-paint-react.git>
+
+# Instale as dependências
+$ npm install
+# or
+$ npm install -g yarn
+
+# Execute a aplicação em modo desenvolvedor
+$ npm run dev
+# or
+$ yarn dev
+
+# A porta do servidor irá abrir no console: https://localhost:3000
+```
+
+## link do projeto (Figma) 
 https://www.figma.com/file/8PcfmNW7MhhUQBKnUbIayg/Untitled?node-id=20%3A470
 
+## 🥳 Suporte
+Se esse projeto te ajudou de alguma forma, deixe uma ⭐️!
 
-### O que precisa para rodar o projeto:
+## 📝 Licença
 
-- nodejs 
-- npm
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
-### como rodar o projeto:
-
-Dê um fork no projeto utilizando o comando abaixo:
-
-``git clone https://github.com/ArthurMaciel95/portal-admin-paint-react.git ``
-
-Depois entre na pasta do projeto é utilize o sequinte comando:
-
-``npm start``
-
-## como consumir a api?
-
- todas (com exceção de login) as requisições devem ser passadas o token jwt pelos headers.
- 
- 
-
-
-
+---
+<blockquote>
+    Feito por Arthur Nogueira Maciel Rocha 🪐
+</blockquote>
