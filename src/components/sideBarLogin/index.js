@@ -10,16 +10,16 @@ const SideBarLogin = () => {
 
     return (
         <>
-            <aside className="side-bar">
+            <aside className="side-bar_login">
                 <div className="sidebar-content">
                     <img className="logo" src={logo} alt="logo marca paint" />
-                    <div className="menu__side-bar">
+                    <div className="menu__side-bar_login">
                         <ul>
                             <p className="introduction">Paint é uma empresa fictícia no ramo de Pintura, Onde Atua no mercado há mais de 10 anos deixando a vida mais colorida.</p>
 
                         </ul>
                     </div>
-                    <div className="footer__side-bar">
+                    <div className="footer__side-bar_login">
                         <span>
                             <object data={iconBuild} type=""></object>
                             <p>Versão da Aplicação: 1.0</p>

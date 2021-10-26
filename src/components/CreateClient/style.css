@@ -4,12 +4,14 @@
     align-items: center;
     flex-direction: column;
     padding: 0 20px 20px 20px;
+
 }
 
 .create-user-card {
-    width: 100%;
+    width: 500px;
     height: auto;
     background: #fff;
+    border-radius: 4px;
 }
 .create-user-header {
      width: 100%;
@@ -48,6 +50,8 @@
     padding: 0 35px;
     color: var(--text-color-gray);
 }
+.create-user-card-description form section .image-area{
+}
 .create-user-card-description fieldset{
     border: none; 
     margin-top: 20px;
@@ -72,7 +76,7 @@ fieldset legend{
 }
 .button-form{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-right: 30px;
 }
 .button-form button{

@@ -1,40 +1,41 @@
-.side-bar{
+.side-bar_login{
     background-color: var(--sidebar-background);
     color: var(--text-color-gray);
     font-size: var(--text-xsmall);
     padding: 30px 55px;
     display: flex;
-
+    
 }
-.side-bar .logo{
+.side-bar_login .logo{
     margin-bottom: 20px;
 }
 
-.side-bar .sidebar-content{
+.side-bar_login .sidebar-content{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
-.side-bar .sidebar-content .logo{
+.side-bar_login .sidebar-content .logo{
     width: fit-content;
 }
-.side-bar .sidebar-content .menu__side-bar .introduction{
+.side-bar_login .sidebar-content .menu__side-bar_login .introduction{
     text-align: center;
     font-size: 0.9rem;
     width: 180px;
 }
 
-.side-bar .menu__side-bar{
+.side-bar_login .menu__side-bar_login{
     width: 100%;
 }
 
-.side-bar .menu__side-bar ul{
+.side-bar_login .menu__side-bar_login ul{
     padding-left: 0px;
     display: flex;
     flex-direction: column;
  
 }
-.side-bar .menu__side-bar ul a li object{
+.side-bar_login .menu__side-bar_login ul a li object{
     
     display: flex;
     justify-content: center;
@@ -42,7 +43,7 @@
 }
 
 
-.side-bar .menu__side-bar ul li {
+.side-bar_login .menu__side-bar_login ul li {
     padding: 8px 0px;
     cursor: pointer;
     display: flex;
@@ -51,18 +52,18 @@
 
 }
 
-.footer__side-bar{
+.footer__side-bar_login{
     margin-top: 60px;
 }
 
-.footer__side-bar span{
+.footer__side-bar_login span{
     display: flex;
 
 }
-.footer__side-bar span object{
+.footer__side-bar_login span object{
     margin-right: 5px;
 }
-.footer__side-bar span p{
+.footer__side-bar_login span p{
     font-size: 0.7rem;
 
 }

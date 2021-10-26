@@ -33,7 +33,7 @@ const DashboardComponent = () => {
             setUser(data.clients)
             setTimeout(() => {
                 setLoading(false)
-            }, 3000);
+            }, 1000);
             return data
         } catch (e) {
             setLoading(false)
