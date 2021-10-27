@@ -1,5 +1,4 @@
 import imgCreateUser from "../../assets/images/create_user_illustrator.png";
-import ModalComponet from "../Modal";
 import { useState } from "react";
 import "./style.css";
 import HeaderPageComponent from "../HeaderPage";
@@ -30,8 +29,6 @@ const CreateUser = () => {
     const [photo, setPhoto] = useState('')
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState({ error: false, message: undefined })
-    const [hideModal, setHideModal] = useState(false)
-    const [success, setsuccess] = useState(true)
     const MAX_SIZE_IMAGE = 100000
 
     const uploadImage = async (e) => {
@@ -82,7 +79,7 @@ const CreateUser = () => {
             },
             company
         }
-        if (!Object.keys(payload).some(item => item === '')) {
+        if (Object.keys(payload).some(item => item === '')) {
             setLoading(false)
             return setErrorMessage({ error: true, message: 'Os campos não podem estar vazios' })
         }
@@ -95,21 +92,15 @@ const CreateUser = () => {
         if (result && !result.status) {
             return setErrorMessage({ error: true, message: result.message });
         }
-        setsuccess(true)
+        history.push('/dashboard')
+
     }
-    const changeModalHide = () => {
-        setHideModal(hide => !hide)
-    }
+
     return (
         <>
             {loading && <LoadingComponent />}
             <div className="create-user-container">
-                <ModalComponet
-                    text={success ? "Cliente cadastrado com sucesso" : "Error ao tentar Cadastrar Cliente"}
-                    hide={hideModal}
-                    functionM={changeModalHide}
-                    success={success}
-                />
+
                 <HeaderPageComponent />
 
                 <div className="create-user-card">
@@ -121,7 +112,7 @@ const CreateUser = () => {
                         <form onSubmit={handlerSubmit} >
                             <section>
                                 <div className="image-area">
-                                    {!photo ? <img src={noAvatar} alt="avatar" /> : <img src={photo} alt="avatar" width="200px" height="200px" />}
+                                    {!photo ? <img src={noAvatar} alt="avatar" /> : <img src={photo} alt="avatar" />}
                                 </div>
                                 <input type="file" name="photo" accept="image/*,capture=camera" onChange={(e) => uploadImage(e)} />
                             </section>
