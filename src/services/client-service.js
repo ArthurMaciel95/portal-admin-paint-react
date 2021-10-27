@@ -4,7 +4,7 @@ import buffer from "../utils/buffer";
 export const client = {
     create: async (payload) => {
         const token = jwtVerify.getToken();
-        const result = await fetch(`${environment.baseURL}/client/create`, {
+        const result = await fetch(`${environment.URL_PRODUCTION}/client/create`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

@@ -5,11 +5,11 @@ import "./style.css";
 import HeaderPageComponent from "../HeaderPage";
 import ButtonComponent from "../Button";
 import noAvatar from '../../assets/images/avatar-high.png'
-import { useEffect } from "react/cjs/react.development";
 import { client } from '../../services/client-service';
 import LoadingComponent from '../Loading/index';
 import { useHistory } from "react-router";
 import ErroMessageComponent from '../ErroMessage'
+
 
 const CreateUser = () => {
 
@@ -32,16 +32,16 @@ const CreateUser = () => {
     const [errorMessage, setErrorMessage] = useState({ error: false, message: undefined })
     const [hideModal, setHideModal] = useState(false)
     const [success, setsuccess] = useState(true)
+    const MAX_SIZE_IMAGE = 100000
 
     const uploadImage = async (e) => {
         let file = e.target.files[0];
         if (!isFormatAllowed(file)) return setErrorMessage({ error: true, message: 'Formato de image não permitido' });
         if (!isSizeAllowed(file)) return setErrorMessage({ error: true, message: 'O tamanho da imagem não pode passar de 100kb' });
         const base64 = await imageToBase64(file);
-        console.log(file, base64)
         setPhoto(base64)
     }
-    const isSizeAllowed = (file) => file.size < 100000;
+    const isSizeAllowed = (file) => file.size < MAX_SIZE_IMAGE;
 
     const isFormatAllowed = (file) => {
         const format = file.type;
@@ -52,17 +52,13 @@ const CreateUser = () => {
     const imageToBase64 = (file) => {
         return new Promise((resolve, reject) => {
             const fileReader = new FileReader();
-
             fileReader.readAsDataURL(file)
-
             fileReader.onload = (() => {
                 resolve(fileReader.result)
             })
-
             fileReader.onerror = (error => {
                 reject(error)
             })
-
         })
     }
 
@@ -86,12 +82,13 @@ const CreateUser = () => {
             },
             company
         }
-        const result = await client.create(payload).then(data => data.json()).catch(e => console.error(e))
+        if (!Object.keys(payload).some(item => item === '')) {
+            setLoading(false)
+            return setErrorMessage({ error: true, message: 'Os campos não podem estar vazios' })
+        }
 
+        const result = await client.create(payload).then(data => data.json()).catch(e => console.error(e))
         setLoading(false)
-        /**
-         * Se o resultado for falso, congelar tela.
-         */
         if (!result) {
             setErrorMessage({ error: true, message: 'Servidor indiponível no momento.' })
         }
@@ -99,16 +96,10 @@ const CreateUser = () => {
             return setErrorMessage({ error: true, message: result.message });
         }
         setsuccess(true)
-
     }
-
     const changeModalHide = () => {
         setHideModal(hide => !hide)
     }
-    useEffect(() => {
-
-    })
-
     return (
         <>
             {loading && <LoadingComponent />}
@@ -132,10 +123,10 @@ const CreateUser = () => {
                                 <div className="image-area">
                                     {!photo ? <img src={noAvatar} alt="avatar" /> : <img src={photo} alt="avatar" width="200px" height="200px" />}
                                 </div>
-                                <input type="file" name="photo" onChange={(e) => uploadImage(e)} />
+                                <input type="file" name="photo" accept="image/*,capture=camera" onChange={(e) => uploadImage(e)} />
                             </section>
+                            {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
                             <fieldset className="create-user-form-data">
-                                {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
                                 <legend>Dados perssoais</legend>
                                 <input
                                     onChange={(e) => setEmail(e.target.value)}
