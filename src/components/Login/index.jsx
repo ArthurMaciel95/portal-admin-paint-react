@@ -28,12 +28,12 @@ const LoginComponent = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        finished()
+
         if (formatter.isNull(email) || formatter.isNull(password)) {
             finished()
             return setErrorMessage({ error: true, message: 'Existem campos a serem preenchidos, tente novamente.' })
         }
-
+        setLoading(true)
         const result = await user.login(email, password).then(response => response).then(data => data.json()).catch(e => console.log(e))
 
 
@@ -44,6 +44,7 @@ const LoginComponent = () => {
             return setErrorMessage({ error: true, message: result.message });
         }
         if (!result) {
+
             return setErrorMessage({ error: true, message: 'Servidor indisponível, Por favor tente mais tarde' })
         }
         clearMessage();

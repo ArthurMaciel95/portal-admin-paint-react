@@ -8,10 +8,19 @@
 }
 
 .create-user-card {
-    width: 500px;
+    max-width: 750px;
     height: auto;
     background: #fff;
     border-radius: 4px;
+}
+
+.create-user-card .create-user-card-description form section .image-area img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    object-fit: cover;
+ 
 }
 .create-user-header {
      width: 100%;
@@ -50,7 +59,30 @@
     padding: 0 35px;
     color: var(--text-color-gray);
 }
+.create-user-card-description form section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.create-user-card-description form section input[type='file']{
+        width: 150px;
+        padding: 10px 5px;
+        cursor: pointer;
+        border: none;
+        background: var(--primary-color);
+        color: #fff;
+        border-radius: 5px;
+      
+        margin-bottom: 15px;
+}
+
+.create-user-card-description form section input[type="file"]:disabled{
+        filter: grayscale(100%);
+}
 .create-user-card-description form section .image-area{
+  
 }
 .create-user-card-description fieldset{
     border: none; 

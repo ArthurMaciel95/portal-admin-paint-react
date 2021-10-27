@@ -7,19 +7,14 @@ import iconInfo from "../../assets/svg/info.svg";
 import iconArrowDown from "../../assets/svg/keyboard_arrow_down.svg";
 import iconCopyright from "../../assets/svg/copyright.svg";
 import iconBuild from "../../assets/svg/build.svg";
-import iconProducts from '../../assets/svg/box_products.svg'
+import iconProducts from '../../assets/svg/box_products.svg';
+import { textOptionMenu } from '../../helpers/config';
 import "./styles.css";
 import { Link } from "react-router-dom";
 
 const SideBarComponent = () => {
     const icon = [iconUser, iconDollar, iconSecurity, iconInfo, iconProducts]
-    const textOptionMenu = [
-        { name: 'Clientes', path: '/dashboard' },
-        { name: 'Faturamento', path: '/revenues' },
-        { name: 'Segurança', path: '/security' },
-        { name: 'Informação', path: '/information' },
-        { name: 'Produtos', path: '/products' }
-    ]
+
 
     return (
         <>

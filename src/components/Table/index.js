@@ -8,7 +8,12 @@ import IconCreditCard from '../../assets/svg/credit_card.svg'
 import IconArrowLeft from '../../assets/svg/arrow_back_ios-1.svg'
 import IconArrowRight from '../../assets/svg/arrow_back_ios.svg'
 import './styles.css';
+import buffer from '../../utils/buffer';
 const TableComponent = ({ data, tableHeaderNames }) => {
+
+    const imageDecoded = (image) => {
+        return buffer.decoded(image, 'utf-8')
+    }
 
     return (
         <>
@@ -29,7 +34,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                         data && data.map(item => {
                             return <tr key={item._id}>
                                 <td className="image-area">
-                                    <img src={Avatar1} alt="" />
+                                    {!item.photo ? <img src={Avatar1} alt="" /> : <img src={imageDecoded(item.photo.data)} alt="" />}
                                 </td>
                                 <td>
                                     <p>{item.username}</p>
