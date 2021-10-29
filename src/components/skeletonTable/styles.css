@@ -1,0 +1,30 @@
+
+ tr:nth-child(odd){
+
+}
+tr{
+    font-size: var(--text-xxsmall);
+    color: var(--text-color-gray);
+ 
+}
+ tr td{
+    text-align: center;
+ 
+}
+
+.skeleton-area{
+    background-color: rgb(213, 213, 213);
+    height: 13px;
+    margin: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.skeleton-image{
+    background-color: rgb(213, 213, 213);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    
+}
