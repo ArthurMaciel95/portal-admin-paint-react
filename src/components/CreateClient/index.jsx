@@ -79,7 +79,8 @@ const CreateUser = () => {
             },
             company
         }
-        if (Object.keys(payload).some(item => item === '')) {
+        console.log(!Object.keys(payload).some(item => item === ''))
+        if (!Object.keys(payload).some(item => item === '')) {
             setLoading(false)
             return setErrorMessage({ error: true, message: 'Os campos não podem estar vazios' })
         }
