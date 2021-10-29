@@ -13,4 +13,5 @@
 .bread-crumbs p {
     font-size: var(--text-xsmall);
     color: var(--text-color-gray);
+    margin-right: 10px;
 }

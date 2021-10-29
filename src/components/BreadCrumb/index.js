@@ -4,8 +4,12 @@ import './styles.css'
 const BreadCrumbComponent = ({ crumb }) => {
     return (
         <div className="bread-crumbs">
-            <object data={crumb.icon} type=""></object>
-            <p>{crumb.page}</p>
+            {
+                crumb.map(m => {
+                    return <><object data={m.icon} type=""></object>
+                        <p>{m.page}</p></>
+                })
+            }
         </div>
     );
 };
