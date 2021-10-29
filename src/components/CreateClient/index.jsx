@@ -1,4 +1,4 @@
-import imgCreateUser from "../../assets/images/create_user_illustrator.png";
+
 import { useState } from "react";
 import "./style.css";
 import HeaderPageComponent from "../HeaderPage";
@@ -104,11 +104,9 @@ const CreateUser = () => {
                 <HeaderPageComponent />
 
                 <div className="create-user-card">
-                    <div className="create-user-card-img">
-                        <img src={imgCreateUser} alt="" />
-                    </div>
+
                     <div className="create-user-card-description">
-                        <h2>Cadastro de cliente</h2>
+                        {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
                         <form onSubmit={handlerSubmit} >
                             <section>
                                 <div className="image-area">
@@ -116,7 +114,7 @@ const CreateUser = () => {
                                 </div>
                                 <input type="file" name="photo" accept="image/*,capture=camera" onChange={(e) => uploadImage(e)} />
                             </section>
-                            {errorMessage.error && <ErroMessageComponent message={errorMessage.message} />}
+
                             <fieldset className="create-user-form-data">
                                 <legend>Dados perssoais</legend>
                                 <input

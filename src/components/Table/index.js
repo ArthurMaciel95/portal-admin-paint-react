@@ -9,6 +9,7 @@ import IconArrowLeft from '../../assets/svg/arrow_back_ios-1.svg'
 import IconArrowRight from '../../assets/svg/arrow_back_ios.svg'
 import './styles.css';
 import buffer from '../../utils/buffer';
+import SkeletonTable from '../skeletonTable'
 const TableComponent = ({ data, tableHeaderNames }) => {
 
     const imageDecoded = (image) => {
@@ -23,7 +24,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
 
                         {
                             tableHeaderNames.map(headerTable => {
-                                return <th>{headerTable}</th>
+                                return <th className="table-row">{headerTable}</th>
                             })
                         }
                     </tr>
@@ -31,7 +32,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                 <tbody>
 
                     {
-                        data && data.map(item => {
+                        data ? data.map(item => {
                             return <tr key={item._id}>
                                 <td className="image-area">
                                     {!item.photo ? <img src={Avatar1} alt="" /> : <img src={imageDecoded(item.photo.data)} alt="" />}
@@ -83,7 +84,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                     </ButtonComponent>
                                 </td>
                             </tr>
-                        })
+                        }) : <SkeletonTable />
                     }
 
 

@@ -13,10 +13,10 @@ import './styles.css'
 import { Link } from 'react-router-dom'
 
 const DashboardComponent = () => {
-    const Crumb = {
+    const Crumb = [{
         icon: iconAccount,
         page: 'Clientes'
-    }
+    }]
 
     const [name, setName] = useState('')
     const [company, setCompany] = useState('')
@@ -31,9 +31,9 @@ const DashboardComponent = () => {
             const result = await client.list()
             const data = await result.json()
             setUser(data.clients)
-            setTimeout(() => {
-                setLoading(false)
-            }, 1000);
+
+            setLoading(false)
+
             return data
         } catch (e) {
             setLoading(false)

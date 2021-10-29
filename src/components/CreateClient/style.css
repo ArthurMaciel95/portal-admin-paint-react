@@ -12,6 +12,7 @@
     height: auto;
     background: #fff;
     border-radius: 4px;
+    display: flex;
 }
 .create-user-card-description form section {
     margin-top: 20px;
