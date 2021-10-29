@@ -27,10 +27,10 @@
     --bg-dk:#18183A;
     --bg-dk-crimson:#FC2D6F;
     --bg-dk-blue:#54E6F3;
-    
-
 }
-
+#root{
+    height: 100vh;
+}
 html,   
 body{
     background-color: var(--background);
