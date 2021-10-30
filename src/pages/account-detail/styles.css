@@ -1,0 +1,106 @@
+.detail-container{
+    margin: 0px 20px;
+    width: 70%;
+}
+
+.detail-container .detail-header{
+  display: flex;
+  
+}
+.detail-container .detail-header > .detail-card{
+  margin-right: 20px;
+    
+  }
+.detail-container .detail-header .detail-card{
+    width: 50%;
+    background: white;
+    padding: 28px;
+    border-radius: 4px;
+    box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+}
+
+.detail-container .detail-header .detail-card p{
+    margin: 0px;
+    color: var(--text-color-gray);
+    font-size: var(--text-xsmall);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.detail-container .detail-header .detail-card .detail-card-warp{
+    display: flex;
+ 
+}
+
+.detail-container .detail-header .detail-card .detail-card-warp .image-area-detail{
+
+}
+.detail-container .detail-header .detail-card .detail-card-warp .image-area-detail img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.detail-container .detail-header .detail-card .detail-card-warp .image-area-detail input[type='file']{
+    
+}
+
+.detail-container .detail-header .detail-card .detail-card-warp .info-detail{
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-container .detail-header .detail-card .detail-card-warp .info-detail input[type='text']{
+    color: var(--text-color-gray);
+    height: 30px;
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.client-product-buy{
+    background: white;
+
+    border-radius: 4px;
+    box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.client-product-buy table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.client-product-buy table thead{
+
+}
+.client-product-buy table thead tr{
+    
+}    
+
+.client-product-buy table thead tr th{
+    padding: 4px 0px;
+    font-size: var(--text-xxsmall);
+    font-weight: 600;
+    color: var(--text-color-gray);
+}
+
+.client-product-buy tbody{
+
+}
+
+.client-product-buy tbody tr{
+    font-size: var(--text-xxsmall);
+    color: var(--text-color-gray);
+} 
+.client-product-buy tbody tr:nth-child(odd){
+    background-color: #e6e6e6;
+}
+
+.client-product-buy tbody tr td{
+}
+
+.client-product-buy tbody tr td p{
+}

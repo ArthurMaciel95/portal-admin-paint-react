@@ -90,11 +90,11 @@ const DashboardComponent = () => {
                         <div className="input-area">
 
                             <input type="text" id="name" placeholder="Nome" />
-                            <input type="text" id="name" placeholder="Empresa" />
+                            <input type="text" id="company" placeholder="Empresa" />
                         </div>
                         <div className="input-area">
-                            <input type="text" id="name" placeholder="Situação" />
-                            <input type="text" id="name" placeholder="Email" />
+                            <input type="text" id="status" placeholder="Situação" />
+                            <input type="text" id="email" placeholder="Email" />
 
                         </div>
                         <object data={imageFilter} type=""></object>
