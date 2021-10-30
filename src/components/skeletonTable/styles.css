@@ -15,6 +15,7 @@ tr{
 .skeleton-area{
     background-color: rgb(213, 213, 213);
     height: 13px;
+    margin: 10px 0px;
     margin: 0px 10px;
     display: flex;
     justify-content: center;

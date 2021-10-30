@@ -14,6 +14,17 @@ export const client = {
         })
         return result
     },
+    delete: async (id) => {
+        const token = jwtVerify.getToken();
+        const result = await fetch(`${environment.baseURL}/client/delete/${id}`, {
+            method: 'Delete',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result
+    },
     create: async (payload) => {
         const token = jwtVerify.getToken();
         const result = await fetch(`${environment.URL_PRODUCTION}/client/create`, {

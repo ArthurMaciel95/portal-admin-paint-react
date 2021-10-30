@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import Sidebar from '../../components/Sidebar'
 import HeaderPageComponent from '../../components/HeaderPage'
 import noAvatar from '../../assets/images/avatar-high.png'
@@ -10,6 +10,7 @@ import { client } from '../../services/client-service'
 import "./styles.css";
 
 const AccountDetail = () => {
+    const history = useHistory()
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     const [photo, setPhoto] = useState()
@@ -48,6 +49,9 @@ const AccountDetail = () => {
         try {
             setLoading(true)
             const result = await client.show(id)
+            if (!result) {
+                return setErrorMessage({ error: true, message: 'Servidor indisponível no momento!' });
+            }
             const data = await result.json()
             setUser(data.client)
             setPhoto(base64decoded(data.client.photo.data))
@@ -59,8 +63,24 @@ const AccountDetail = () => {
     }
 
     const base64decoded = (image) => {
-
         return buffer.decoded(image, 'utf-8')
+    }
+    const deleteClient = async () => {
+        setLoading(true)
+        const result = await client.delete(id)
+        setLoading(false)
+        if (!result) {
+            return setErrorMessage({ error: true, message: 'Servidor indisponível no momento!' });
+        }
+        if (result && !result.status) {
+            return setErrorMessage({ error: true, message: result.message });
+        }
+        const data = await result.json();
+
+        if (data.status) {
+            history.push('/dashboard')
+        }
+        console.log(data)
     }
 
     useEffect(() => {
@@ -170,6 +190,15 @@ const AccountDetail = () => {
                             })}
                         </tbody>
                     </table>
+                </div>
+                <div className="footer-account-detail">
+                    <button className="btn-delete" onClick={(e) => deleteClient()}>
+                        Deletar Cliente
+                    </button>
+                    <button className="btn-save">
+                        Salvar Alterações
+                    </button>
+
                 </div>
             </section>
         </div>

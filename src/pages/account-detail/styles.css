@@ -41,8 +41,9 @@
 .detail-container .detail-header .detail-card .detail-card-warp .image-area-detail img{
     margin-bottom: 20px;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
 }
 
 .detail-container .detail-header .detail-card .detail-card-warp .image-area-detail label{
@@ -78,6 +79,33 @@
     border-bottom: 2px solid var(--primary-color);
     margin-right: 10px;
     margin-bottom: 15px;
+}
+
+.detail-container .footer-account-detail{
+    margin-top: 20px;
+    width: 100%;
+  
+}
+.detail-container .footer-account-detail .btn-save{
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: var(--text-xsmall);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+.detail-container .footer-account-detail .btn-delete{
+    padding: 10px 20px;
+    background-color: transparent;
+    border-radius: 4px;
+    color: var(--status-late);
+    font-weight: 600;
+    font-size: var(--text-xsmall);
+    border: 1px solid var(--status-late);
+    cursor: pointer;
+    margin-right: 20px;
 }
 
 .client-product-buy{
