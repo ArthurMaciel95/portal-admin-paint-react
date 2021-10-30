@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { formatDate } from '../../utils/mask';
 import Avatar1 from '../../assets/images/no-avatar.png';
 import IconAccountDetail from '../../assets/svg/launch.svg';
@@ -15,7 +16,7 @@ const TableComponent = ({ data, tableHeaderNames }) => {
     const imageDecoded = (image) => {
         return buffer.decoded(image, 'utf-8')
     }
-
+    console.log(data)
     return (
         <>
             <table>
@@ -23,8 +24,8 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                     <tr>
 
                         {
-                            tableHeaderNames.map(headerTable => {
-                                return <th className="table-row">{headerTable}</th>
+                            tableHeaderNames.map((headerTable, i) => {
+                                return <th key={i} className="table-row">{headerTable}</th>
                             })
                         }
                     </tr>
@@ -79,9 +80,11 @@ const TableComponent = ({ data, tableHeaderNames }) => {
                                 </td>
                                 <td>
 
-                                    <ButtonComponent type="submit" btnDetail="true">
-                                        {<object type="image/svg+xml" data={IconAccountDetail}></object>}
-                                    </ButtonComponent>
+                                    <Link to={'/client/' + item._id}>
+                                        <ButtonComponent type="submit" btnDetail="true">
+                                            {<object type="image/svg+xml" data={IconAccountDetail}></object>}
+                                        </ButtonComponent>
+                                    </Link>
                                 </td>
                             </tr>
                         }) : <SkeletonTable />

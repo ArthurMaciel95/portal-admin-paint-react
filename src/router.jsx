@@ -22,7 +22,7 @@ const Router = () => {
                     <Switch>
                         <PrivateRoute path="/dashboard" component={Dashboard} />
                         <PrivateRoute exact path="/create/account" component={CreateAccount} />
-                        <PrivateRoute path="/account/detail" component={AccountDetail} />
+                        <PrivateRoute path="/client/:id" component={AccountDetail} />
                         <PrivateRoute path="/create/client" component={CreateClient} />
                         <PrivateRoute exact path="/create/products" component={CreateProducts} />
                         <PrivateRoute path="/revenues" component={Revenues} />

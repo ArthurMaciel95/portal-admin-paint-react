@@ -2,6 +2,18 @@ import environment from "../environment";
 import jwtVerify from "../utils/jwt";
 import buffer from "../utils/buffer";
 export const client = {
+
+    show: async (id) => {
+        const token = jwtVerify.getToken();
+        const result = await fetch(`${environment.baseURL}/client/list/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        return result
+    },
     create: async (payload) => {
         const token = jwtVerify.getToken();
         const result = await fetch(`${environment.URL_PRODUCTION}/client/create`, {

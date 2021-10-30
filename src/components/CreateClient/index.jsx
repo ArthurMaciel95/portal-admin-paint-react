@@ -79,8 +79,22 @@ const CreateUser = () => {
             },
             company
         }
-        console.log(!Object.keys(payload).some(item => item === ''))
-        if (!Object.keys(payload).some(item => item === '')) {
+        if (Object.entries(payload).some(item => item[1] === undefined || item[1] === '')) {
+            setLoading(false)
+            return setErrorMessage({ error: true, message: 'Os campos presisam se preenchidos' })
+        }
+
+
+        if (!birth_date instanceof Date && !isNaN(birth_date.valueOf())) {
+            setLoading(false)
+            return setErrorMessage({ error: true, message: 'Data de nascimento invalida!' })
+        }
+
+        const transformDate = new Date(birth_date)
+
+        payload.birth_date = transformDate
+
+        if (Object.keys(payload).some(item => item === undefined)) {
             setLoading(false)
             return setErrorMessage({ error: true, message: 'Os campos não podem estar vazios' })
         }
@@ -140,7 +154,7 @@ const CreateUser = () => {
                                 <input
                                     onChange={(e) => setBirthdate(e.target.value)}
                                     value={birth_date}
-                                    type="text"
+                                    type="date"
                                     placeholder="Data de nascimento"
                                     name="birth_date" />
                             </fieldset>

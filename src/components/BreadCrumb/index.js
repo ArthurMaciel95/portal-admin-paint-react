@@ -5,8 +5,8 @@ const BreadCrumbComponent = ({ crumb }) => {
     return (
         <div className="bread-crumbs">
             {
-                crumb.map(m => {
-                    return <><object data={m.icon} type=""></object>
+                crumb.map((m, i) => {
+                    return <><object key={i} data={m.icon} type=""></object>
                         <p>{m.page}</p></>
                 })
             }
