@@ -69,7 +69,7 @@ const LoginComponent = () => {
                             <form onSubmit={handleSubmit} method="post">
                                 <input className="mat-input" type="text" name="email" value={email} disabled={disabled} placeholder="email" onChange={(e) => { setEmail(e.target.value) }} />
                                 <input className="mat-input" type="password" name="password" value={password} disabled={disabled} placeholder="senha" onChange={(e) => { setPassword(e.target.value) }} />
-                                <Link to="">Esqueci minha senha.</Link>
+                                <Link to="/forgetpassword">Esqueci minha senha.</Link>
                                 <ButtonComponent type="submit" value="Entrar" disabled={disabled} />
                             </form>
 

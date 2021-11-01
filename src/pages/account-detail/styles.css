@@ -61,6 +61,17 @@
     flex-direction: column;
 }
 
+.detail-container .detail-header .detail-card .detail-card-warp .info-detail select {
+    background-color: white;
+    border: 0;
+    border-bottom: 2px solid var(--primary-color);
+    outline: none;
+    color: var(--text-color-gray);
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
 .detail-container .detail-header .detail-card .detail-card-warp .info-detail input[type='text']{
     color: var(--text-color-gray);
     height: 30px;

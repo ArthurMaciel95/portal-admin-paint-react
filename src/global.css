@@ -8,8 +8,8 @@
     --sidebar-background:#FFFFFF;
     
     /*text color*/
-    --text-color-gray:#6B6B6B;
-
+    --text-color-gray:#8d8d8d;
+    --text-color-header:#555555;
     /*status text color */
     --status-received:#73F536;
     --status-pending:#F5CB36;

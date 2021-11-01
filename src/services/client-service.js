@@ -5,7 +5,7 @@ export const client = {
 
     show: async (id) => {
         const token = jwtVerify.getToken();
-        const result = await fetch(`${environment.baseURL}/client/list/${id}`, {
+        const result = await fetch(`${environment.URL_PRODUCTION}/client/list/${id}`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
@@ -16,7 +16,7 @@ export const client = {
     },
     delete: async (id) => {
         const token = jwtVerify.getToken();
-        const result = await fetch(`${environment.baseURL}/client/delete/${id}`, {
+        const result = await fetch(`${environment.URL_PRODUCTION}/client/delete/${id}`, {
             method: 'Delete',
             headers: {
                 'Content-type': 'application/json',

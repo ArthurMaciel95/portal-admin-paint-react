@@ -14,6 +14,7 @@ import Revenues from './pages/revenues';
 import Security from './pages/security';
 import Information from './pages/information';
 import { CurrenteProvider } from './context/UserContext';
+import RecoveryPassword from './pages/recovery-password'
 const Router = () => {
     return (
         <BrowserRouter>
@@ -29,6 +30,7 @@ const Router = () => {
                         <PrivateRoute path="/security" component={Security} />
                         <PrivateRoute path="/products" component={Products} />
                         <PrivateRoute path="/information" component={Information} />
+                        <Route path="/forgetpassword" component={RecoveryPassword} />
                         <Route exact path="/" component={Login} />
                         <Route path="*" component={PageNotFound} />
                     </Switch>

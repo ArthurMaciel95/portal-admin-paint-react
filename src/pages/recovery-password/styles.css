@@ -1,0 +1,66 @@
+.container-recovery {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recovery-container {
+    background-color: white;
+    padding: 40px  90px 40px 70px;
+    border-radius: 4px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(170, 170, 170, 0.2) 0px 2px 8px 0px;
+}
+
+.recovery-container .recovery-body {
+}
+.recovery-container img {
+    width: 196px;
+    height: 66px;
+    margin-bottom: 30px;
+}
+.recovery-container .recovery-body h3 {
+    font-size: var(--text-large);
+    color: var(--text-color-header);
+    font-weight: 500;
+}
+.recovery-container .recovery-body p {
+    color: var(--text-color-gray);
+    font-size: var(--text-xsmall);
+    margin: 26px 0px;
+}
+.recovery-container .recovery-body a {
+    color: var(--primary-color);
+}
+
+.recovery-container .recovery-body input[type="email"] {
+    display: block;
+    width: 80%;
+    color: var(--text-color-gray);
+    height: 30px;
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.recovery-container .recovery-body button{
+    
+    margin-top: 10px;
+    width: 150px;
+    padding: 12px 10px;
+    cursor: pointer;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: var(--text-small);
+    margin-bottom: 15px;
+    font-weight: 700;
+}

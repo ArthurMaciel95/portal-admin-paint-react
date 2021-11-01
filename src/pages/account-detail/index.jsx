@@ -49,13 +49,15 @@ const AccountDetail = () => {
         try {
             setLoading(true)
             const result = await client.show(id)
+
             if (!result) {
                 return setErrorMessage({ error: true, message: 'Servidor indisponível no momento!' });
             }
             const data = await result.json()
+            setLoading(false)
+            console.log(data)
             setUser(data.client)
             setPhoto(base64decoded(data.client.photo.data))
-            setLoading(false)
 
         } catch (e) {
             console.log(e)
@@ -149,7 +151,13 @@ const AccountDetail = () => {
                             <div className="info-detail">
                                 <input type="text" name="name" id="" placeholder="Nome" value={user && user.username} />
                                 <input type="text" name="birth_date" id="" placeholder="Data de nascimento" value={user && user.birth_date} />
-                                <input type="text" name="payment_method" id="" placeholder="Metodo de pagamento " value={user && user.payment_method} />
+
+                                <select name="payment_method" id="">
+                                    <option selected disabled hidden value={user && user.payment_method}>Forma de pagamento</option>
+                                    <option value="debit">Débito</option>
+                                    <option value="credit">Crédito</option>
+                                    <option value="money">Dinheiro</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -163,7 +171,14 @@ const AccountDetail = () => {
                                 <input type="text" name="additional_infomation" id="" placeholder="Nome" value={user && user.address.additional_infomation} />
                             </div>
                             <div className="info-detail">
-                                <input type="text" name="status" id="" placeholder="Situação" value={user && user.status} />
+
+                                <select name="status" id="">
+                                    <option selected disabled hidden value={user && user.status}>Situação</option>
+                                    <option value="peding">Pendente</option>
+                                    <option value="late">Atrasado</option>
+                                    <option value="received">Recebido</option>
+                                </select>
+
                                 <input type="text" name="name" id="" placeholder="Nome" value={user && user.address.additional_infomation} />
                             </div>
                         </div>
