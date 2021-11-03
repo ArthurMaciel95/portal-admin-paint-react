@@ -1,0 +1,19 @@
+.message-area{
+    max-width: 400px;
+   font-size: 0.7rem;
+   margin: 20px 0px;
+}
+
+.message-area .success-message{
+    display: flex;
+    align-items: center;
+    background-color: #A5EDAC;
+    color: #219B3C;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 4px;
+    
+}
+.message-area .success-message img{
+    margin-right: 10px;
+}

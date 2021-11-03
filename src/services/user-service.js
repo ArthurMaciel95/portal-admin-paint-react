@@ -34,5 +34,29 @@ export const user = {
                 'Authorization': "Bearer " + jwt.getToken()
             }
         })
+    },
+    /**
+     * 
+     * @param {object} payload  é o email que vai ser verificado no servidor.
+     * @returns Promise
+     */
+    forgetPassword: async (payload) => {
+
+        return await fetch(`${environment.baseURL}/user/forget-password`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        })
+    },
+    resetPassword: async (payload) => {
+        return await fetch(`${environment.baseURL}/user/reset/:token`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        })
     }
 }

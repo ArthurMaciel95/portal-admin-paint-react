@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 import ErrorMessage from '../../components/ErroMessage'
-import SuccessMessage from '../../components/SuccessMessage'
 import { user } from '../../services/user-service'
 import LoadingComponent from '../../components/Loading'
+import { useHistory } from 'react-router'
 import './styles.css'
-const RecoveryPassword = () => {
+const ResetPassword = () => {
+    const history = useHistory()
     const [errorMessage, setErrorMessage] = useState({ error: false, message: undefined })
-    const [successMessage, setSuccessMessage] = useState({ success: false, message: undefined })
-    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [repeatPassword, setRepeatPassword] = useState('')
     const [loading, setLoading] = useState(false)
-
     const clearMessage = () => {
         setErrorMessage({ error: false, message: undefined })
-        setSuccessMessage({ success: false, message: undefined })
-    }
-    const payload = {
-        email
-    }
 
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         clearMessage()
         setLoading(true)
 
-        if (!email) {
+        if (!password || !repeatPassword) {
             setLoading(false)
             return setErrorMessage({ error: true, message: 'O Campo email não deve estar vazio.' })
         }
-        const result = await user.forgetPassword(payload);
+
+        const payload = {
+            password,
+            repeatPassword
+        }
+        const result = await user.resetPassword(payload);
         const data = await result.json();
 
         if (!result) {
@@ -41,10 +41,9 @@ const RecoveryPassword = () => {
             return setErrorMessage({ error: true, message: data.message })
         }
         setLoading(false)
-        setSuccessMessage({ success: true, message: 'Email enviado com sucesso!' })
+        history.push('/')
 
     }
-
 
     return (
         <>
@@ -53,15 +52,15 @@ const RecoveryPassword = () => {
                 <section className="recovery-container">
                     <img className="logo" src={logo} alt="logo marca da empresa" />
                     <div className="recovery-body">
-                        <h3>Esqueceu sua senha? <br />
-                            Vamos recuperar!</h3>
-                        <p>Por favor, digite seu e-mail para rebeber um link com instruçoes no seu email.</p>
-                        <p>Lembrou sua senha? <Link to="/">conecte-se</Link></p>
+                        <h3>Crie uma nova senha!</h3>
+                        <p>Preencha os campos abaixo para alterar a senha.</p>
+
                         {errorMessage.error && <ErrorMessage message={errorMessage.message} />}
-                        {successMessage.success && <SuccessMessage message={successMessage.message} />}
+
                         <form action="" onSubmit={handleSubmit}>
-                            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-                            <button>Enviar</button>
+                            <input type="password" placeholder="Senha" onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" placeholder="Repita Senha" onChange={(e) => setRepeatPassword(e.target.value)} />
+                            <button>Mudar senha</button>
                         </form>
                     </div>
                 </section>
@@ -69,4 +68,4 @@ const RecoveryPassword = () => {
     )
 }
 
-export default RecoveryPassword
+export default ResetPassword

@@ -1,0 +1,11 @@
+.recovery-container .recovery-body input[type="password"] {
+    display: block;
+    width: 80%;
+    color: var(--text-color-gray);
+    height: 30px;
+    border: 0;
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}

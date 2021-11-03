@@ -15,6 +15,7 @@ import Security from './pages/security';
 import Information from './pages/information';
 import { CurrenteProvider } from './context/UserContext';
 import RecoveryPassword from './pages/recovery-password'
+import ResetPassword from './pages/reset-password';
 const Router = () => {
     return (
         <BrowserRouter>
@@ -31,6 +32,7 @@ const Router = () => {
                         <PrivateRoute path="/products" component={Products} />
                         <PrivateRoute path="/information" component={Information} />
                         <Route path="/forgetpassword" component={RecoveryPassword} />
+                        <Route path="/reset/:id/:token" component={ResetPassword} />
                         <Route exact path="/" component={Login} />
                         <Route path="*" component={PageNotFound} />
                     </Switch>
