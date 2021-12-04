@@ -51,12 +51,20 @@ export const user = {
         })
     },
     resetPassword: async (payload) => {
-        return await fetch(`${environment.baseURL}/user/reset/:token`, {
-            method: 'POST',
+        return await fetch(`${environment.baseURL}/user/reset/password`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(payload)
+        })
+    },
+    resetPasswordTokenVerify: async (token) => {
+        return await fetch(`${environment.baseURL}/user/reset/${token}`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+            }
         })
     }
 }

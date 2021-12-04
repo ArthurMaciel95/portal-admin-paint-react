@@ -4,6 +4,7 @@ import BreadCrumbComponent from '../BreadCrumb'
 import iconAccount from '../../assets/svg/account_circle-1.svg'
 import iconAddClient from '../../assets/svg/bread_add_list.svg'
 import jwtVerify from '../../utils/jwt'
+import { Link } from 'react-router-dom';
 const HeaderPageComponent = () => {
 
     const [currentUser, setCurrentUser] = useState({})
@@ -31,7 +32,7 @@ const HeaderPageComponent = () => {
             <div className="user-header">
                 <img src={AvatarUser} alt="foto de usuário" />
                 <div className="user-description">
-                    {currentUser ? <><p>{currentUser.username}</p>
+                    {currentUser ? <><p>{currentUser.username}, <Link to="/">Sair</Link></p>
                         <p>{currentUser.email}</p></> : {}}
 
                 </div>

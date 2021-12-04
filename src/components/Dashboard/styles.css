@@ -39,6 +39,12 @@ margin-bottom: 5px;
 .dashboard-container .dashboard-header .profile-area .profile-info p{
     margin: 0;
 }
+
+.dashboard-container .dashboard-header .profile-area .profile-info p a{
+    color: var(--text-color-gray);
+    margin-left: 10px;
+}
+
 .dashboard-container .dashboard-header .profile-area .profile-info  p:nth-child(1){
     color: var(--primary-color);
     font-weight: 500;

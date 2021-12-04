@@ -32,7 +32,7 @@ const Router = () => {
                         <PrivateRoute path="/products" component={Products} />
                         <PrivateRoute path="/information" component={Information} />
                         <Route path="/forgetpassword" component={RecoveryPassword} />
-                        <Route path="/reset/:id/:token" component={ResetPassword} />
+                        <Route exact path="/reset/:token" component={ResetPassword} />
                         <Route exact path="/" component={Login} />
                         <Route path="*" component={PageNotFound} />
                     </Switch>

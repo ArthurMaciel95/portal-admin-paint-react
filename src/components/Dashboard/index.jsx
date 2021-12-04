@@ -76,7 +76,7 @@ const DashboardComponent = () => {
 
                         <div className="profile-info">
                             {
-                                currentUser ? <><p>{currentUser.username}</p>
+                                currentUser ? <><p>{currentUser.username}, <Link to="/">Sair</Link></p>
                                     <p>{currentUser.email}</p></> : {}
                             }
 
