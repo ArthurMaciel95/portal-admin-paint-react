@@ -41,7 +41,7 @@ export const client = {
     update: async (id) => {
         const token = jwtVerify.getToken();
         const result = await fetch(`${environment.URL_PRODUCTION}/client/update/${id}`, {
-            method: 'GET',
+            method: 'PUT',
             headers: {
                 'Content-type': 'application/json',
                 'Authorization': 'Bearer ' + token
