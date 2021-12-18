@@ -7,6 +7,7 @@ import buffer from "../../utils/buffer";
 import LoadingComponent from '../../components/Loading'
 import ErroMessageComponent from "../../components/ErroMessage";
 import { client } from '../../services/client-service'
+import { formatDate } from '../../utils/mask'
 import "./styles.css";
 
 const AccountDetail = () => {
@@ -17,6 +18,15 @@ const AccountDetail = () => {
     const [ErrorMessage, setErrorMessage] = useState({ error: false, message: undefined })
     const MAX_SIZE_IMAGE = 100000
     const { id } = useParams()
+
+    const [name, setName] = useState('')
+    const [cep, setCep] = useState('')
+    const [payment_method, setPaymentMethod] = useState('')
+    const [street, setStreet] = useState('')
+    const [additionalInformation, setAdditionalInformation] = useState('')
+    const [status, setStatus] = useState('')
+
+
 
     const uploadImage = async (e) => {
         let file = e.target.files[0];
@@ -57,6 +67,13 @@ const AccountDetail = () => {
             setLoading(false)
             console.log(data)
             setUser(data.client)
+
+            setName(data.client.username)
+            setCep(data.client.address.cep)
+            setPaymentMethod(data.setPaymentMethod)
+            setStreet(data.client.address.city)
+            setAdditionalInformation(data.client.address.additional_infomation)
+            setStatus(data.client.status)
             setPhoto(base64decoded(data.client.photo.data))
 
         } catch (e) {
@@ -85,6 +102,23 @@ const AccountDetail = () => {
         console.log(data)
     }
 
+    const updateClient = async () => {
+        setLoading(true)
+
+        const result = await client.update(id)
+        console.log(result)
+        setLoading(false)
+
+        if (!result) {
+            return setErrorMessage({ error: true, message: 'Servidor indisponível no momento!' });
+        }
+        if (result && !result.status) {
+            return setErrorMessage({ error: true, message: result.message });
+        }
+        const data = await result.json();
+
+        console.log(result, 'foi ' + data)
+    }
     useEffect(() => {
         getuserById()
     }, [])
@@ -149,8 +183,9 @@ const AccountDetail = () => {
 
                             </div>
                             <div className="info-detail">
-                                <input type="text" name="name" id="" placeholder="Nome" value={user && user.username} />
-                                <input type="text" name="birth_date" id="" placeholder="Data de nascimento" value={user && user.birth_date} />
+                                <input type="text" name="name" id="" placeholder="Nome" value={user && user.username} disabled />
+                                <input type="text" name="birth_date" id="" placeholder="Data de nascimento" value={user && formatDate(user.birth_date)} disabled
+                                />
 
                                 <select name="payment_method" id="">
                                     <option selected disabled hidden value={user && user.payment_method}>Forma de pagamento</option>
@@ -165,7 +200,7 @@ const AccountDetail = () => {
                         <p>Endereço:</p>
                         <div className="detail-card-warp">
                             <div className="info-detail">
-                                <input type="text" name="cep" id="" placeholder="Cep" value={user && user.address.cep} />
+                                <input type="text" name="cep" id="" placeholder="Cep" value={cep} onChange={e => setCep(e.target.value)} />
                                 <input type="text" name="city" id="" placeholder="Cidade" value={user && user.address.city} />
                                 <input type="text" name="district" id="" placeholder="Bairro" value={user && user.address.district} />
                                 <input type="text" name="additional_infomation" id="" placeholder="Nome" value={user && user.address.additional_infomation} />
@@ -210,7 +245,7 @@ const AccountDetail = () => {
                     <button className="btn-delete" onClick={(e) => deleteClient()}>
                         Deletar Cliente
                     </button>
-                    <button className="btn-save">
+                    <button className="btn-save" onClick={e => updateClient()}>
                         Salvar Alterações
                     </button>
 
