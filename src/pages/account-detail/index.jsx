@@ -49,6 +49,7 @@ const AccountDetail = () => {
     }
 
     const uploadImage = async (e) => {
+        setErrorMessage({ error: false, message: undefined })
         let file = e.target.files[0];
         if (!isFormatAllowed(file)) return setErrorMessage({ error: true, message: 'Formato de image não permitido' });
         if (!isSizeAllowed(file)) return setErrorMessage({ error: true, message: 'O tamanho da imagem não pode passar de 100kb' });
