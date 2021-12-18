@@ -38,14 +38,15 @@ export const client = {
         })
         return result
     },
-    update: async (id) => {
+    update: async (id, payload) => {
         const token = jwtVerify.getToken();
-        const result = await fetch(`${environment.URL_PRODUCTION}/client/update/${id}`, {
+        const result = await fetch(`${environment.baseURL}/client/update/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json',
                 'Authorization': 'Bearer ' + token
-            }
+            },
+            body: JSON.stringify(payload)
         })
         return result
     },

@@ -9,10 +9,12 @@ import ErroMessageComponent from "../../components/ErroMessage";
 import { client } from '../../services/client-service'
 import { formatDate } from '../../utils/mask'
 import "./styles.css";
+import ModalComponet from "../../components/Modal";
 
 const AccountDetail = () => {
     const history = useHistory()
     const [loading, setLoading] = useState(true)
+    const [modal, setModal] = useState(false)
     const [user, setUser] = useState()
     const [photo, setPhoto] = useState()
     const [ErrorMessage, setErrorMessage] = useState({ error: false, message: undefined })
@@ -25,8 +27,26 @@ const AccountDetail = () => {
     const [street, setStreet] = useState('')
     const [additionalInformation, setAdditionalInformation] = useState('')
     const [status, setStatus] = useState('')
+    const [district, setDistric] = useState('')
+    const [city, setCity] = useState('')
+    const [email, setEmail] = useState('')
+
+    const payload = {
+        username: name,
+        email,
+        payment_method,
 
 
+        address: {
+            cep,
+            district,
+            additional_infomation: additionalInformation,
+            city,
+            street,
+        },
+        status,
+
+    }
 
     const uploadImage = async (e) => {
         let file = e.target.files[0];
@@ -70,11 +90,14 @@ const AccountDetail = () => {
 
             setName(data.client.username)
             setCep(data.client.address.cep)
-            setPaymentMethod(data.setPaymentMethod)
+            setPaymentMethod(data.client.payment_method)
             setStreet(data.client.address.city)
             setAdditionalInformation(data.client.address.additional_infomation)
             setStatus(data.client.status)
             setPhoto(base64decoded(data.client.photo.data))
+            setDistric(data.client.address.district)
+            setCity(data.client.address.city)
+            setEmail(data.client.email)
 
         } catch (e) {
             console.log(e)
@@ -104,8 +127,8 @@ const AccountDetail = () => {
 
     const updateClient = async () => {
         setLoading(true)
-
-        const result = await client.update(id)
+        console.log(payload)
+        const result = await client.update(id, payload)
         console.log(result)
         setLoading(false)
 
@@ -117,7 +140,9 @@ const AccountDetail = () => {
         }
         const data = await result.json();
 
-        console.log(result, 'foi ' + data)
+        console.log(data)
+
+        setModal(true)
     }
     useEffect(() => {
         getuserById()
@@ -164,6 +189,7 @@ const AccountDetail = () => {
 
     return <>
         {loading && <LoadingComponent />}
+        {modal && <ModalComponet text="Dados alterados com sucesso." success={true} />}
         <div className="container">
             <Sidebar />
             <section className="detail-container">
@@ -186,9 +212,11 @@ const AccountDetail = () => {
                                 <input type="text" name="name" id="" placeholder="Nome" value={user && user.username} disabled />
                                 <input type="text" name="birth_date" id="" placeholder="Data de nascimento" value={user && formatDate(user.birth_date)} disabled
                                 />
+                                <input type="text" name="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-                                <select name="payment_method" id="">
-                                    <option selected disabled hidden value={user && user.payment_method}>Forma de pagamento</option>
+
+                                <select name="payment_method" id="" value={payment_method} onChange={e => setPaymentMethod(e.target.value)}>
+
                                     <option value="debit">Débito</option>
                                     <option value="credit">Crédito</option>
                                     <option value="money">Dinheiro</option>
@@ -201,9 +229,9 @@ const AccountDetail = () => {
                         <div className="detail-card-warp">
                             <div className="info-detail">
                                 <input type="text" name="cep" id="" placeholder="Cep" value={cep} onChange={e => setCep(e.target.value)} />
-                                <input type="text" name="city" id="" placeholder="Cidade" value={user && user.address.city} />
-                                <input type="text" name="district" id="" placeholder="Bairro" value={user && user.address.district} />
-                                <input type="text" name="additional_infomation" id="" placeholder="Nome" value={user && user.address.additional_infomation} />
+                                <input type="text" name="city" id="" placeholder="Cidade" value={city} onChange={e => setCity(e.target.value)} />
+                                <input type="text" name="district" id="" placeholder="Bairro" value={district} onChange={e => setDistric(e.target.value)} />
+                                <input type="text" name="additional_infomation" id="" placeholder="Informação adicional" value={additionalInformation} onChange={e => setAdditionalInformation(e.target.value)} />
                             </div>
                             <div className="info-detail">
 
