@@ -29,6 +29,11 @@
 Esse é o frontend do **Portal Paint**, uma aplicação feita em react.js com a finalidade de entregar informações pertinentes ao seu negócio,
 
 Aplicação construida para fins educacionais, onde pude revisar e treinar conceitos tanto sobre o Front como o Back.
+
+![Captura de tela de 2021-10-25 23-14-00](https://user-images.githubusercontent.com/62079236/154412923-db0e6747-6e01-4fa4-af20-ce84fead841f.png)
+
+![Captura de tela de 2021-10-30 16-10-54](https://user-images.githubusercontent.com/62079236/154412954-4f30cee0-c7b4-479d-9bda-f9e12888bc99.png)
+
 Link para o Backend:
 https://github.com/ArthurMaciel95/portal-admin-paint-service-node
 
